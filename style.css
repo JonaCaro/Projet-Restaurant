@@ -1,0 +1,147 @@
+html{
+	padding: 0;
+	margin: 0;
+  background-color: #d99a4e;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='152' height='152' viewBox='0 0 152 152'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='temple' fill='%23a6754b' fill-opacity='0.3'%3E%3Cpath d='M152 150v2H0v-2h28v-8H8v-20H0v-2h8V80h42v20h20v42H30v8h90v-8H80v-42h20V80h42v40h8V30h-8v40h-42V50H80V8h40V0h2v8h20v20h8V0h2v150zm-2 0v-28h-8v20h-20v8h28zM82 30v18h18V30H82zm20 18h20v20h18V30h-20V10H82v18h20v20zm0 2v18h18V50h-18zm20-22h18V10h-18v18zm-54 92v-18H50v18h18zm-20-18H28V82H10v38h20v20h38v-18H48v-20zm0-2V82H30v18h18zm-20 22H10v18h18v-18zm54 0v18h38v-20h20V82h-18v20h-20v20H82zm18-20H82v18h18v-18zm2-2h18V82h-18v18zm20 40v-18h18v18h-18zM30 0h-2v8H8v20H0v2h8v40h42V50h20V8H30V0zm20 48h18V30H50v18zm18-20H48v20H28v20H10V30h20V10h38v18zM30 50h18v18H30V50zm-2-40H10v18h18V10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+html, body{
+	height: 100%;
+	margin: 0;
+}
+
+nav{
+	position: absolute; 
+	height: 80px;
+	width: 100%;
+}
+
+nav ul{
+	float: left;
+	padding-left: 20px;
+}
+
+nav ul li{
+	display: inline-block;
+	line-height: 80px;
+	margin: 0 5px;
+}
+
+nav ul li a{
+	text-decoration: none;
+	color: white;
+	padding: 7px 10px;
+	font-size: 20px;
+	border-radius: 3px;
+	text-transform: uppercase;
+}
+
+a.active, a:hover{
+	color: #D99A4E;
+	transition: .5s;
+}
+
+.checkbtn{
+	font-size: 30px;
+	float: right;
+	line-height: 125px;
+	margin-right: 40px;
+	cursor: pointer; 
+	display: none;
+}
+
+#check{
+	display: none;
+}
+
+@media (max-width: 1025px){
+	nav ul li a{
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 945px){
+	.checkbtn{
+		display: block;
+	}
+
+	ul{
+		position: fixed;
+		width: 100%;
+		height: 100vh;
+		background: #A6754B;
+		top: 80px;
+		left: -125%;
+		text-align: center;
+		transition: all .5s;
+	}
+
+	nav ul li{
+		display: block;
+		margin: 50px 0;
+		line-height: 25px;
+	}
+
+	nav ul li a{
+		font-size: 25px;
+	}
+
+	a:hover, a.active{
+		background: none;
+		color: #D99A4E;
+	}
+
+	#check:checked ~ ul{
+		left: 0;
+	}
+}
+
+#presentation{
+	display: flex;
+	align-items: center;
+}
+
+#discBox{
+	width: 50%;
+	background: #D99A4E;
+	padding: 20px;
+}
+
+#description{
+	width: 65%;
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+	font-size: 20px;
+}
+
+@media (max-width: 1572px){
+	#discBox{
+		width: 70%;
+	}
+	#description{
+		width: 70%;
+		font-size: 18px;
+	}
+}
+
+@media (max-width: 1165px){
+	#discBox{
+		width: 80%;
+	}
+	#description{
+		width: 80%;
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 1013px){
+	#presentation{
+		display: initial;
+	}
+	#discBox{
+		width: 100%;
+	}
+	#description{
+		font-size: 19px;
+	}
+}
