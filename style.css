@@ -18,6 +18,7 @@ nav{
 nav ul{
 	float: left;
 	padding-left: 20px;
+	width: 95%;
 }
 
 nav ul li{
@@ -53,15 +54,39 @@ a.active, a:hover{
 	display: none;
 }
 
-@media (max-width: 1025px){
+.Connexion{
+	float: right;
+	text-decoration: none;
+	color: white;
+	padding: 20px 25px;
+	font-size: 14px;
+	border-radius: 3px;
+	text-transform: uppercase;
+}
+
+.pic-ctn{
+	display: none;
+}
+
+@media (max-width: 1250px){
 	nav ul li a{
 		font-size: 16px;
 	}
+	nav ul{
+		width: 99%;
+	}
+	.Connexion{
+		font-size: 12px;
+	}
 }
 
-@media (max-width: 945px){
+@media (max-width: 1032px){
 	.checkbtn{
 		display: block;
+	}
+
+	nav ul{
+		width: 99%;
 	}
 
 	ul{
@@ -84,6 +109,9 @@ a.active, a:hover{
 	nav ul li a{
 		font-size: 25px;
 	}
+	.Connexion{
+		font-size: 20px;
+	}
 
 	a:hover, a.active{
 		background: none;
@@ -92,6 +120,62 @@ a.active, a:hover{
 
 	#check:checked ~ ul{
 		left: 0;
+	}
+
+	.pic-ctn:checked{
+		width: 100vw;
+		height: 200px;
+	}
+	
+	@keyframes display {
+		0% {
+			transform: translateX(200px);
+			opacity: 0;
+		}
+		10% {
+			transform: translateX(0);
+			opacity: 1;
+		}
+		20% {
+			transform: translateX(0);
+			opacity: 1;
+		}
+		30% {
+			transform: translateX(-200px);
+			opacity: 0;
+		}
+		100% {
+			transform: translateX(-200px);
+			opacity: 0;
+		}
+	}
+	
+	.pic-ctn {
+		position: relative;
+		width: 100vw;
+		height: 300px;
+		margin-top: 15vh;
+	}
+	
+	.pic-ctn > img {
+		position: absolute;
+		top: 0;
+		left: calc(50% - 100px);
+		opacity: 0;
+		animation: display 10s infinite;
+	}
+	
+	img:nth-child(2) {
+		animation-delay: 2s;
+	}
+	img:nth-child(3) {
+		animation-delay: 4s;
+	}
+	img:nth-child(4) {
+		animation-delay: 6s;
+	}
+	img:nth-child(5) {
+		animation-delay: 8s;
 	}
 }
 
@@ -144,4 +228,29 @@ a.active, a:hover{
 	#description{
 		font-size: 19px;
 	}
+}
+
+.imagePlat{
+	display: flex;
+	width: 100%;
+}
+
+.plat{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.platOs{
+margin: 40px;
+box-shadow: -30px 30px 5px #A6754B;
+}
+.platCarpa{
+	margin: 40px;
+	box-shadow: 30px -30px 5px #A6754B;
+}
+.platTira{
+	margin: 40px;
+	box-shadow: 30px 30px 5px #A6754B;
 }
