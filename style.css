@@ -5,6 +5,7 @@ html{
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='152' height='152' viewBox='0 0 152 152'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='temple' fill='%23a6754b' fill-opacity='0.3'%3E%3Cpath d='M152 150v2H0v-2h28v-8H8v-20H0v-2h8V80h42v20h20v42H30v8h90v-8H80v-42h20V80h42v40h8V30h-8v40h-42V50H80V8h40V0h2v8h20v20h8V0h2v150zm-2 0v-28h-8v20h-20v8h28zM82 30v18h18V30H82zm20 18h20v20h18V30h-20V10H82v18h20v20zm0 2v18h18V50h-18zm20-22h18V10h-18v18zm-54 92v-18H50v18h18zm-20-18H28V82H10v38h20v20h38v-18H48v-20zm0-2V82H30v18h18zm-20 22H10v18h18v-18zm54 0v18h38v-20h20V82h-18v20h-20v20H82zm18-20H82v18h18v-18zm2-2h18V82h-18v18zm20 40v-18h18v18h-18zM30 0h-2v8H8v20H0v2h8v40h42V50h20V8H30V0zm20 48h18V30H50v18zm18-20H48v20H28v20H10V30h20V10h38v18zM30 50h18v18H30V50zm-2-40H10v18h18V10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 html, body{
+	font-family: arial, sans-serif;
 	height: 100%;
 	margin: 0;
 }
@@ -90,7 +91,7 @@ a.active, a:hover{
 	}
 
 	ul{
-		position: fixed;
+		position: absolute;
 		width: 100%;
 		height: 100vh;
 		background: #A6754B;
@@ -120,62 +121,6 @@ a.active, a:hover{
 
 	#check:checked ~ ul{
 		left: 0;
-	}
-
-	.pic-ctn:checked{
-		width: 100vw;
-		height: 200px;
-	}
-	
-	@keyframes display {
-		0% {
-			transform: translateX(200px);
-			opacity: 0;
-		}
-		10% {
-			transform: translateX(0);
-			opacity: 1;
-		}
-		20% {
-			transform: translateX(0);
-			opacity: 1;
-		}
-		30% {
-			transform: translateX(-200px);
-			opacity: 0;
-		}
-		100% {
-			transform: translateX(-200px);
-			opacity: 0;
-		}
-	}
-	
-	.pic-ctn {
-		position: relative;
-		width: 100vw;
-		height: 300px;
-		margin-top: 15vh;
-	}
-	
-	.pic-ctn > img {
-		position: absolute;
-		top: 0;
-		left: calc(50% - 100px);
-		opacity: 0;
-		animation: display 10s infinite;
-	}
-	
-	img:nth-child(2) {
-		animation-delay: 2s;
-	}
-	img:nth-child(3) {
-		animation-delay: 4s;
-	}
-	img:nth-child(4) {
-		animation-delay: 6s;
-	}
-	img:nth-child(5) {
-		animation-delay: 8s;
 	}
 }
 
@@ -242,6 +187,30 @@ a.active, a:hover{
 	align-items: center;
 }
 
+.buttonImg{
+	display: flex;
+	flex-direction: column;
+	justify-content: center; 
+	align-items: center;
+}
+
+section div a{
+	text-decoration: none;
+	font-size: 25px;
+	border: 4px solid #A6754B;
+	background: #D99A4E;
+	border-radius: 5px;
+	color: white;
+	margin: 30px;
+	padding: 12px;
+}
+
+div a:hover, div a.active{
+	background: none;
+	color: white;
+	background: #A6754B;
+}
+
 .platOs{
 margin: 40px;
 box-shadow: -30px 30px 5px #A6754B;
@@ -253,4 +222,136 @@ box-shadow: -30px 30px 5px #A6754B;
 .platTira{
 	margin: 40px;
 	box-shadow: 30px 30px 5px #A6754B;
+}
+
+@media (max-width: 1039px){
+
+	.buttonImg{
+		display: flex;
+		flex-direction: row;
+		justify-content: center; 
+		align-items: center;
+		width: 100%;
+	}
+	section div a{
+		font-size: 25px;
+		margin: 30px;
+		padding: 10px;
+	}
+
+	.carousel{
+		width: 40%;
+		height: 100%;
+	}
+
+	.pic-ctn:checked{
+		width: 100%;
+		height: 100%;
+	}
+	
+	@keyframes display {
+		0% {
+			transform: translateX(200px);
+			opacity: 0;
+		}
+		10% {
+			transform: translateX(0);
+			opacity: 1;
+		}
+		20% {
+			transform: translateX(0);
+			opacity: 1;
+		}
+		30% {
+			transform: translateX(-200px);
+			opacity: 0;
+		}
+		100% {
+			transform: translateX(-200px);
+			opacity: 0;
+		}
+	}
+
+	.plat{
+		display: none;
+	}
+	
+	.pic-ctn {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		margin-top: 15vh;
+		display: block;
+	}
+	
+	.pic-ctn > img {
+		position: absolute;
+		top: 0;
+		left: calc(50% - 100px);
+		opacity: 0;
+		animation: display 10s infinite;
+	}
+	
+	img:nth-child(2) {
+		animation-delay: 3s;
+	}
+	img:nth-child(3) {
+		animation-delay: 7s;
+	}
+	img:nth-child(4) {
+		animation-delay: 11s;
+	}
+	
+}
+
+
+footer{
+	display: flex;
+	padding: 20px;
+	background: #A6754B;
+}
+
+footer div {
+display: flex;
+flex-direction: column;
+
+}
+
+.contacte{
+	margin-left: 20%;
+}
+
+footer div a {
+	text-decoration: none;
+	color: white;
+	padding: 10px 15px; 
+	font-size: 25px;
+}
+footer div a:hover{
+	color: #D99A4E;
+	transition: .5s;
+}
+
+	.arrow{
+		display: flex;
+		justify-content: center;	
+		width: 50%; 
+	}
+
+#top{
+	float: right;
+}
+
+header{
+	position: absolute;
+}
+header img{
+	margin: 20px;
+}
+
+section{
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
 }
