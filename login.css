@@ -2,13 +2,20 @@ html, body{
   margin: 0;
 }
 
-body {
-  background-image: url(image/login.jpg);
+.banner{
   height: 100vh;
-  font-family: arial, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("picture/login.jpg") center/cover no-repeat;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  color: #fff;
+  padding-bottom: 20px;
+}
+
+.back{
+  opacity: 0.8;
 }
 
 .container {
