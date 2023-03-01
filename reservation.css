@@ -1,11 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@400;700&display=swap');
+
 html, body{
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: 'Anek Tamil', sans-serif;
 }
-body{
-  font-family: 'Poppins', sans-serif;
-}
+
 .banner{
   min-height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("picture/banner.jpg") center/cover no-repeat;

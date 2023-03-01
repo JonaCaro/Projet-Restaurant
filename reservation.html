@@ -23,18 +23,9 @@
       <div class="card-content">
         <h3>Reservation</h3>
         <form>
+          <label for="start">Start date:</label>
           <div class="form-row">
-            <select name="days">
-              <option value="day-select">Séléctionnez le jour</option>
-              <option value="sunday">Lundi</option>
-              <option value="monday">Mardi</option>
-              <option value="tuesday">Mercredi</option>
-              <option value="wednesday">Jeudi</option>
-              <option value="thursday">Vendredi</option>
-              <option value="friday">Samedi</option>
-              <option value="saturday">Dimanche</option>
-            </select>
-
+            <input type="date" id="datePickerId">
             <select name="hours">
               <option value="hour-select">Séléctionnez l'heures</option>
               <option value="11: 45">11: 45</option>
@@ -59,6 +50,7 @@
       </div>
     </div>
   </section>
+  <script>datePickerId.min = new Date().toISOString().split("T")[0];</script>
 </body>
 
 </html>
