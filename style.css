@@ -12,6 +12,7 @@ html, body{
 	font-family: 'Anek Tamil', sans-serif;
 }
 
+
 nav{
 	position: absolute; 
 	height: 80px;
@@ -138,7 +139,7 @@ a.active, a:hover{
 }
 
 #description{
-	width: 65%;
+	width: 100%;
 	display: block;
   margin-left: auto;
   margin-right: auto;
@@ -150,22 +151,22 @@ a.active, a:hover{
 		width: 70%;
 	}
 	#description{
-		width: 70%;
+		width: 80%;
 		font-size: 18px;
 	}
 }
 
-@media (max-width: 1165px){
+@media (max-width: 1200px){
 	#discBox{
 		width: 80%;
 	}
 	#description{
-		width: 80%;
+		width: 90%;
 		font-size: 16px;
 	}
 }
 
-@media (max-width: 1013px){
+@media (max-width: 1040px){
 	#presentation{
 		display: initial;
 	}
@@ -226,7 +227,7 @@ box-shadow: -30px 30px 5px #A6754B;
 	box-shadow: 30px 30px 5px #A6754B;
 }
 
-@media (max-width: 1039px){
+@media (max-width: 1040px){
 
 	.buttonImg{
 		display: flex;

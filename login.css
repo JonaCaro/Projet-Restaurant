@@ -43,7 +43,7 @@ form {
   color: black;
   font-weight: 500;
   font-size: 1.4rem;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   text-shadow: 2px 2px 4px lightgray;
 }
   
@@ -79,7 +79,7 @@ a:active {
   text-shadow: none;
 }
 
-input {
+input{
   background: transparent;
   border: none;
   border-left: 1px solid rgba(255, 255, 255, .3);
