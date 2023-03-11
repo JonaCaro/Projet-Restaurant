@@ -310,7 +310,7 @@ box-shadow: -30px 30px 5px #A6754B;
 
 footer{
 	display: flex;
-	padding: 20px;
+	padding: 10px;
 	background: #A6754B;
 }
 
@@ -322,6 +322,7 @@ flex-direction: column;
 
 .contact{
 	margin-left: 20%;
+	width: 40%;
 }
 
 footer div a {
@@ -335,16 +336,79 @@ footer div a:hover{
 	transition: .5s;
 }
 
-	.arrow{
-		display: flex;
-		justify-content: center;	
-		width: 50%; 
-	}
+.boxSchedule{
+	width: 40%;
+	margin-left: 80px;
+}
+
+.schedule {
+	color: white;
+	font-size: 18px;
+	display: inline-block;
+}
+
+#titleSchedule{
+margin: 10px;
+font-size: 20px;
+
+}
+
+.arrow{
+	display: flex;
+	justify-content: center;	
+	width: 50%; 
+}
 
 #top{
 	float: right;
+	width: 75px;
+	height: 75px;
+	margin-right: 10%;
 }
 
+@media (max-width: 1430px){
+	.schedule{
+		font-size: 14px;
+	}
+	.contact{
+		margin-left: 10%;
+	}
+		
+	footer div a{
+		font-size: 14px;
+		
+	}
+	.arrow{
+		width: 10%;
+	}
+}
+@media (max-width: 1040px){
+	.contact{
+		margin: 0;
+	}
+
+}
+
+@media (max-width: 600px){
+	#top{
+		display: none;
+	}
+	footer{
+		display: flex;
+		flex-direction: column;
+	}
+	footer div{
+		padding-left: 15%;
+	}
+	.contact{
+		width: 100%;
+		margin-bottom: 20px;
+	}
+	.boxSchedule{
+		width: 100%;
+		margin: 0;
+	}
+}
 
 /* menu */
 header{
