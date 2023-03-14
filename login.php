@@ -20,6 +20,8 @@ if (
       $_SESSION["IdUser"] = $UserId;
 
 
+
+
       $uri = $_SERVER['HTTP_HOST'] . '/' . substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/')) . '/';
       header('Location: http://' . $uri .  'index.php');
     } else {
@@ -51,8 +53,8 @@ if (
       <form method="post" action="login.php">
         <p class="welcom">Bienvenue<br>
           Aux Quai Antique</p>
-        <input type="email" name="mail" placeholder="Email"><br>
-        <input type="password" name="mdp" placeholder="Mot de passe"><br>
+        <input required type="email" name="mail" placeholder="Email"><br>
+        <input required type="password" name="mdp" placeholder="Mot de passe"><br>
         <input type="submit" value="Connexion"><br>
         <a href="#">Mot de passe oublié</a>
         <p class="inscription">Vous n'avez pas de compte ?<br>

@@ -58,7 +58,7 @@ a.active, a:hover{
 	display: none;
 }
 
-.Connexion{
+.Connexion {
 	float: right;
 	text-decoration: none;
 	color: white;
@@ -67,6 +67,17 @@ a.active, a:hover{
 	border-radius: 3px;
 	text-transform: uppercase;
 }
+
+#deconnexion{
+	float: right;
+	text-decoration: none;
+	color: white;
+	padding-left: 10px;
+	font-size: 14px;
+	border-radius: 3px;
+	text-transform: uppercase;
+}
+
 
 .pic-ctn{
 	display: none;
@@ -80,6 +91,10 @@ a.active, a:hover{
 		width: 99%;
 	}
 	.Connexion{
+		font-size: 12px;
+	}
+
+	#deconnexion{
 		font-size: 12px;
 	}
 }
@@ -114,6 +129,10 @@ a.active, a:hover{
 		font-size: 25px;
 	}
 	.Connexion{
+		font-size: 20px;
+	}
+
+	#deconnexion{
 		font-size: 20px;
 	}
 

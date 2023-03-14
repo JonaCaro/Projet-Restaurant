@@ -4,6 +4,8 @@ require_once('Helper.php');
 
 session_start();
 
+echo $_SESSION["Role"];
+
 $helpC = new HelperClass();
 
 $con = false;
@@ -35,14 +37,23 @@ if (isset($_SESSION["Con"])) {
     <ul>
       <li><a class="active" href="#welcomeBanner">Accueil</a></li>
       <li><a href="#presentation">Présentation</a></li>
-      <li><a href="#titleSchedule">Horaires</a></li>
-      <li><a href="menu.html">La Carte</a></li>
-      <li><a href="reservation.html">Réserver</a></li>
+      <li><a href="#imgschedule">Horaires</a></li>
+      <li><a href="menu.php">La Carte</a></li>
+      <li><a href="reservation.php">Réserver</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="gallery.html">Galerie</a></li>
+      <li><a href="gallery.php">Galerie</a></li>
+
+
+      <?php if ($_SESSION["Role"] === 1) {
+        echo '<a href="admin.php">Admin</a>';
+      }
+
+      ?>
+
       <?php
+
       if ($con) {
-        echo '<div class="Connexion">Bonjour ' . $_SESSION["Con"] . '<a href="deconnexion.php" class="deconnexion" >Déconnexion</a></div>';
+        echo '<div class="Connexion">Bonjour ' . $_SESSION["Con"] . '  ' . '<a href="logout.php" id="deconnexion">/  Déconnexion</a></div>';
       } else {
         echo '<a href="login.php" class="Connexion">Connexion / inscription</a>';
       }
@@ -84,8 +95,8 @@ if (isset($_SESSION["Con"])) {
       <img src="picture/flatOs.jpg" alt="flatOs" class="flatOs">
     </div>
     <div class="buttonImg">
-      <a href="menu.html" class="buttonImg" id="menu">La Carte</a>
-      <a href="reservation.html" class="buttonImg" id="reserver">Réserver</a>
+      <a href="menu.php" class="buttonImg" id="menu">La Carte</a>
+      <a href="reservation.php" class="buttonImg" id="reserver">Réserver</a>
     </div>
     <div class="flat">
       <img src="picture/flatTira.jpg" alt="flatTira" class="flatTira">
@@ -100,8 +111,8 @@ if (isset($_SESSION["Con"])) {
     </div>
   </section>
 
-  <div class="imgSchedule">
-    <img src="picture/schedule.jpg" alt="schedule" id="imgschedule" height="100%" width="100%">
+  <div class="imgSchedule" id="imgschedule">
+    <img src="picture/schedule.jpg" alt="schedule" height="100%" width="100%">
   </div>
 
   <footer>
@@ -122,30 +133,48 @@ if (isset($_SESSION["Con"])) {
         </tr>
         <tr>
           <th>Mardi:</th>
-          <td>19:00-22:00</td>
+          <td><?php
+              echo $helpC->SearcheParameter("PARAM_MardiHoraire")
+              ?></td>
         </tr>
         <tr>
           <th>Mercredi:</th>
-          <td>19:00-22:00</td>
+          <td><?php
+              echo $helpC->SearcheParameter("PARAM_MercrediHoraire")
+              ?></td>
         </tr>
         <tr>
           <th>Jeudi:</th>
-          <td>19:00-22:00</td>
+          <td><?php
+              echo $helpC->SearcheParameter("PARAM_JeudiHoraire")
+              ?></td>
         </tr>
         <tr>
           <th>Vendredi:</th>
-          <td>12:00–14:00 /</td>
-          <td>19:00-22:00</td>
+          <td><?php
+              echo $helpC->SearcheParameter("PARAM_VendrediHoraireMidi")
+              ?> /</td>
+          <td><?php
+              echo $helpC->SearcheParameter("PARAM_VendrediHoraireSoire")
+              ?></td>
         </tr>
         <tr>
           <th>Samedi:</th>
-          <td>12:00–14:00 /</td>
-          <td>19:00-22:00</td>
+          <td><?php
+              echo $helpC->SearcheParameter("PARAM_SamediHoraireMidi")
+              ?> /</td>
+          <td><?php
+              echo $helpC->SearcheParameter("PARAM_SamediHoraireSoire")
+              ?></td>
         </tr>
         <tr>
           <th>Dimanche:</th>
-          <td>12:00–14:00 /</td>
-          <td>19:00-22:00</td>
+          <td><?php
+              echo $helpC->SearcheParameter("PARAM_DimancheHoraireMidi")
+              ?> /</td>
+          <td><?php
+              echo $helpC->SearcheParameter("PARAM_DimancheHoraireSoire")
+              ?></td>
         </tr>
       </table>
     </div>

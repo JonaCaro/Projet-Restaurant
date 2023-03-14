@@ -60,12 +60,12 @@ if (
     <div class="container">
       <form action="signUp.php" method="post">
         <p class="welcom">Bienvenue</p>
-        <input type="text" id="firstName" name="firstName" placeholder="Nom"><br>
-        <input type="text" id="name" name="name" placeholder="Prenon"><br>
-        <input type="email" id="mail" name="mail" placeholder="Email"><br>
-        <input type="text" id="tel" name="tel" placeholder="Téléphone"><br>
-        <input type="password" id="mdp" name="mdp" placeholder="Mot de passe"><br>
-        <input type="password" id="mdpConf" name="mdpConf" placeholder="Confirmation Mot de passe"><br>
+        <input required type="text" id="firstName" name="firstName" placeholder="Nom"><br>
+        <input required type="text" id="name" name="name" placeholder="Prenon"><br>
+        <input required type="email" id="mail" name="mail" placeholder="Email"><br>
+        <input required type="text" id="tel" name="tel" placeholder="Téléphone"><br>
+        <input required type="password" id="mdp" name="mdp" placeholder="Mot de passe"><br>
+        <input required type="password" id="mdpConf" name="mdpConf" placeholder="Confirmation Mot de passe"><br>
         <?php
         if ($divM) {
           echo ' <p style="color:red" id="error">Les mots de passe ne sont pas correspondant</p> ';
@@ -73,12 +73,9 @@ if (
         ?>
         <input type="submit" value="Inscription"><br>
       </form>
-
-      <div class="drop drop-1"></div>
       <div class="drop drop-2"></div>
-      <div class="drop drop-3"></div>
+
       <div class="drop drop-4"></div>
-      <div class="drop drop-5"></div>
     </div>
   </section>
 </body>
