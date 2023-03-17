@@ -18,11 +18,11 @@ if (
       $pdo = new PDO('mysql:host=localhost;dbname=quaiantique', 'root', '');
       $tmt = $pdo->prepare("insert into users(name, firstname, email, Telephone) values (?,?,?,?)");
       $tmt->execute(array('' . $name . '', '' . $firstName . '', '' . $mail . '', '' . $tel . ''));
-      $UserId = $pdo->lastInsertId();
+      $IDUser = $pdo->lastInsertId();
       $tmts = $pdo->prepare("insert into signup(ID_User, Password) values (?,?)");
-      $tmts->execute(array($UserId, '' . $mdp . ''));
+      $tmts->execute(array($IDUser, '' . $mdp . ''));
       $_SESSION["Con"] = $name;
-      $_SESSION["IdUser"] = $UserId;
+      $_SESSION["IDUser"] = $IDUser;
 
       $uri = $_SERVER['HTTP_HOST'] . '/' . substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/')) . '/';
       header('Location: http://' . $uri .  'index.php');

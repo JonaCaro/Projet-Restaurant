@@ -3,6 +3,7 @@ session_start();
 if (
   isset($_POST["mail"]) && isset($_POST["mdp"])
 ) {
+
   $mail = $_POST["mail"];
   $mdp = $_POST["mdp"];
   try {
@@ -12,14 +13,12 @@ if (
     $tmt->execute(array('' . $mail . '', '' . $mdp . ''));
     if ($tmt->rowCount() == 1) {
       foreach ($tmt as $row) {
-
-
         $name = $row["name"];
-        $UserId = $row["id"];
+        $IDUser = $row["id"];
         $Role = $row["Role"];
       }
       $_SESSION["Con"] = $name;
-      $_SESSION["IdUser"] = $UserId;
+      $_SESSION["IDUser"] = $IDUser;
       $_SESSION["Role"] = $Role;
 
       $uri = $_SERVER['HTTP_HOST'] . '/' . substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/')) . '/';

@@ -1,12 +1,11 @@
 <?php
 session_start();
+
 try {
   $pdo = new PDO('mysql:host=localhost;dbname=quaiantique', 'root', '');
 
   $recupParam = $pdo->query("SELECT * FROM adminparameters");
-
   $recupResa = $pdo->query("SELECT * FROM reservation ");
-  $recupUser = $pdo->query("SELECT * FROM users ");
 } catch (PDOException $e) {
   echo $e;
 }
@@ -66,9 +65,7 @@ try {
     <table id="tableResa">
       <tr>
         <th>Id</th>
-        <th>Prénom</th>
-        <th>Nom</th>
-        <th>Téléphone</th>
+        <th>Id User</th>
         <th>Date de Réservation</th>
         <th>Heurs de Réservation</th>
         <th>Nombre de Pérsonne</th>
@@ -78,13 +75,10 @@ try {
 
       <?php
       while ($resa = $recupResa->fetch()) {
-        while ($user = $recupUser->fetch()) {
-          echo "
+        echo "
           <tr>
           <td>{$resa['ID']}</td>
-          <td>{$user['name']}</td>
-          <td>{$user['firstname']}</td>
-          <td>{$user['Telephone']}</td>
+          <td>{$resa['ID_User']}</td>        
           <td>{$resa['DateResa']}</td>
           <td>{$resa['TimeResa']}</td>
           <td>{$resa['PeopleNumber']}</td>
@@ -93,7 +87,6 @@ try {
           <button><img src=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAiklEQVR4nO2UwQmAMAxFvxfncARdUpeyJ3ETHaH0GCnEg6VisK2i5MM/lIS8pKQFrtUAMAAcAArsOOZzkmUiAAo8pkIqAJaLtZF4xzHLuWLNgu6lns4gVMjvgR4XPTUJ/R60S3omBZFeHXQZoO/oa8tApT7VNQNkkYCGDKBeAqoZdmcyP4mH+BoHbXvrXW5mYPgbAAAAAElFTkSuQmCC></button>
           </td>
           </tr>";
-        }
       }
       ?>
       <h2 id="resa">Résérvation</h2>
