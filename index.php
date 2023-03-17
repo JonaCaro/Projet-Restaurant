@@ -4,8 +4,6 @@ require_once('Helper.php');
 
 session_start();
 
-echo $_SESSION["Role"];
-
 $helpC = new HelperClass();
 
 $con = false;
@@ -13,6 +11,13 @@ if (isset($_SESSION["Con"])) {
   $con = true;
 } else {
   $_SESSION["Con"] = "";
+}
+
+$role = 0;
+if (isset($_SESSION["Role"])) {
+  $role = 1;
+} else {
+  $_SESSION["Role"] = '';
 }
 ?>
 
@@ -29,6 +34,8 @@ if (isset($_SESSION["Con"])) {
 
 <body>
 
+
+
   <nav>
     <input type="checkbox" id="check">
     <label for="check" class="checkbtn">
@@ -44,10 +51,13 @@ if (isset($_SESSION["Con"])) {
       <li><a href="gallery.php">Galerie</a></li>
 
 
-      <?php if ($_SESSION["Role"] === 1) {
-        echo '<a href="admin.php">Admin</a>';
-      }
+      <?php
 
+      if ($_SESSION["Role"] === 1) {
+        echo '<li><a class="admin" href="admin.php">Admin</a></li>';
+      } else {
+        '<style>.admin{ display: none; }</style>';
+      }
       ?>
 
       <?php

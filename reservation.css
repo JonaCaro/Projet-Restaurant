@@ -120,3 +120,12 @@ form input[type = text], form input[type = number], form input::placeholder, sel
       height: 330px;
   }
 }
+
+#notLogin{
+  position: absolute;
+  color: white;
+  text-align: center;
+  width: 100%;
+  font-size: 25px;
+  margin-top: 50px;
+}

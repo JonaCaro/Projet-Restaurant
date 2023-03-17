@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@400;700&display=swap');
+
+html, body{
+	font-family: 'Courgette', cursive;
+	height: 100%;
+	margin: 0;
+	font-family: 'Anek Tamil', sans-serif;
+
+}
+
+body{
+  background-color: #d99a4e;
+}
+
+.back{
+  position: absolute;
+  margin: 20px;
+}
+
+h1, h2{
+  text-align: center;
+  padding: 10px;
+}
+
+nav{
+	width: 100%;
+  text-align: center;
+}
+
+nav ul li{
+	display: inline-block;
+	line-height: 80px;
+	margin: 0 5px;
+}
+
+nav ul li a{
+	text-decoration: none;
+  color: black;
+	font-size: 25px;
+	text-transform: uppercase;
+  margin-left: 70px;
+  margin-right: 70px;
+}
+a.active, a:hover{
+	color: #b6690b;
+	transition: .5s;
+}
+
+table{
+  border: 2px solid #7f5151;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+}
+#tableParam{
+  width: 65%;
+}
+
+#tableResa{
+  width: 80%;
+}
+
+table tr{
+	padding-left: 20px;
+	width: 95%;
+  
+}
+
+th, td {
+  border: 1px solid #bbb;
+  padding: 2px 8px 0;
+  text-align: left;
+  font-size: 20px;
+}
+
+thead > tr > th {
+  background-color: #cce;
+  font-size: 18px;
+  border-bottom: 2px solid #999;
+}
+
+table tr img{
+  width: 26px;
+  height: 26px;
+}
+
+button{
+  background: none;
+  border: none;
+}
+
+button:hover{
+  background:#b6690b;
+  border-radius: 25%;
+}
+
+#resa{
+  margin-top: 50px;
+}
+.box{
+  padding-bottom: 50px;
+}

@@ -3,25 +3,27 @@ require_once('Helper.php');
 $helpC = new HelperClass();
 
 session_start();
-$divM = false;
-if (isset($_SESSION["Con"])) {
-
+if (isset($_SESSION["IDUser"]) != NULL) {
   if (
     isset($_POST["DateResa"]) && isset($_POST["TimeResa"])
-    && isset($_POST["Allergens"]) && isset($_POST["PeopleNumber"])
+    && isset($_POST["PeopleNumber"]) && isset($_POST["Allergens"])
   ) {
+    echo $_SESSION["IDUser"];
+    $IdUser = $_SESSION["IDUser"];
     $DateResa = $_POST["DateResa"];
     $TimeResa = $_POST["TimeResa"];
-    $Allergens = $_POST["Allergens"];
     $PeopleNumber = $_POST["PeopleNumber"];
+    $Allergens = $_POST["Allergens"];
     try {
       $pdo = new PDO('mysql:host=localhost;dbname=quaiantique', 'root', '');
-      $tmt = $pdo->prepare("insert into users(DateResa, TimeResa, Allergens, PeopleNumber) values (?,?,?,?)");
-      $tmt->execute(array('' . $DateResa . '', '' . $TimeResa . '', '' . $Allergens . '', '' . $PeopleNumber . ''));
+      $tmt = $pdo->prepare("insert into reservation(IDUser, DateResa, TimeResa, PeopleNumber, Allergens) values (?,?,?,?)");
+      $tmt->execute(array('' . $IdUser . '', '' . $DateResa . '', '' . $TimeResa . '', '' . $PeopleNumber . '', '' . $Allergens . ''));
     } catch (PDOException $e) {
       echo $e;
     }
   }
+} else {
+  echo "<p id=notLogin> Merci de bien vouloire vous connnectez</p>";
 }
 ?>
 <!DOCTYPE html>
@@ -45,14 +47,13 @@ if (isset($_SESSION["Con"])) {
       <div class="card-img">
 
       </div>
-
       <div class="card-content">
         <h3>Résérvation</h3>
         <form action="reservation.php" method="post">
           <div class="form-row">
             <input required type="Date" name="DateResa" id="datePickerId">
             <select required name="TimeResa">
-              <option value="hour-select">Séléctionnez l'heures</option>
+              <option required value="hour-select">Séléctionnez l'heures</option>
               <option value="12"><?php
                                   echo $helpC->SearcheParameter("PARAM_ResaHoraire1")
                                   ?></option>

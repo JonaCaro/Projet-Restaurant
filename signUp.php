@@ -6,6 +6,7 @@ if (
   isset($_POST["firstName"]) && isset($_POST["name"]) && isset($_POST["mail"])
   && isset($_POST["tel"]) && isset($_POST["mdp"]) && isset($_POST["mdpConf"])
 ) {
+
   $firstName = $_POST["firstName"];
   $name = $_POST["name"];
   $mail = $_POST["mail"];
@@ -14,14 +15,12 @@ if (
   $mdpConf = $_POST["mdpConf"];
   if ($mdp ===  $mdpConf) {
     try {
-
       $pdo = new PDO('mysql:host=localhost;dbname=quaiantique', 'root', '');
       $tmt = $pdo->prepare("insert into users(name, firstname, email, Telephone) values (?,?,?,?)");
       $tmt->execute(array('' . $name . '', '' . $firstName . '', '' . $mail . '', '' . $tel . ''));
       $UserId = $pdo->lastInsertId();
       $tmts = $pdo->prepare("insert into signup(ID_User, Password) values (?,?)");
       $tmts->execute(array($UserId, '' . $mdp . ''));
-
       $_SESSION["Con"] = $name;
       $_SESSION["IdUser"] = $UserId;
 

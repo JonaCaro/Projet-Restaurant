@@ -7,20 +7,20 @@ if (
   $mdp = $_POST["mdp"];
   try {
     $pdo = new PDO('mysql:host=localhost;dbname=quaiantique', 'root', '');
-    $tmt = $pdo->prepare("SELECT u.id, u.name FROM users u 
+    $tmt = $pdo->prepare("SELECT u.id, u.name, u.Role FROM users u 
       inner join signup s where u.email = ? and s.Password = ?");
     $tmt->execute(array('' . $mail . '', '' . $mdp . ''));
-
     if ($tmt->rowCount() == 1) {
       foreach ($tmt as $row) {
+
+
         $name = $row["name"];
         $UserId = $row["id"];
+        $Role = $row["Role"];
       }
       $_SESSION["Con"] = $name;
       $_SESSION["IdUser"] = $UserId;
-
-
-
+      $_SESSION["Role"] = $Role;
 
       $uri = $_SERVER['HTTP_HOST'] . '/' . substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/')) . '/';
       header('Location: http://' . $uri .  'index.php');
