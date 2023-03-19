@@ -24,7 +24,7 @@ if (
       $uri = $_SERVER['HTTP_HOST'] . '/' . substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/')) . '/';
       header('Location: http://' . $uri .  'index.php');
     } else {
-      echo 'Erreur lors de la connexion!!';
+      echo 'Erreur lors de la connexion !!';
     }
   } catch (PDOException $e) {
     echo $e;

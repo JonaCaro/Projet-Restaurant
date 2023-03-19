@@ -7,14 +7,15 @@ session_start();
 $helpC = new HelperClass();
 
 $con = false;
-if (isset($_SESSION["Con"])) {
+
+if (isset($_SESSION["Con"]) && $_SESSION["Con"] != "") {
   $con = true;
 } else {
   $_SESSION["Con"] = "";
 }
 
 $role = 0;
-if (isset($_SESSION["Role"])) {
+if (isset($_SESSION["Role"]) && $_SESSION["Role"] == 1) {
   $role = 1;
 } else {
   $_SESSION["Role"] = '';

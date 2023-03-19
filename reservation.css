@@ -77,7 +77,7 @@ span{
 }
 
 #noAllergens{
-
+  padding-left: 20px;
   color: lightgray;
 }
 
@@ -137,4 +137,24 @@ button{
   width: 100%;
   font-size: 25px;
   margin-top: 50px;
+}
+
+li{
+  text-decoration: none;
+  list-style-type:none;
+}
+
+.delete{
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.list{
+  background-color: white;
 }

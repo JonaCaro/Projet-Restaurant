@@ -137,3 +137,9 @@ input[type="button"] {
   height: 120px; width: 120px;
   top: -60px; right: -60px;
 }
+
+.erreur{
+  margin-top: 100px;
+  text-align: center;
+  font-size: 30px;
+}

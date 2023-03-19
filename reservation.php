@@ -2,25 +2,21 @@
 require_once('Helper.php');
 $helpC = new HelperClass();
 
-
 session_start();
-echo $_POST["DateResa"];
-echo $_POST["TimeResa"];
-echo $_POST["PeopleNumber"];
-echo $_POST["Allergens"];
 if (isset($_SESSION["IDUser"]) != NULL) {
   if (
     isset($_POST["DateResa"]) && isset($_POST["TimeResa"])
-    && isset($_POST["PeopleNumber"]) && isset($_POST["Allergens"])
+    && isset($_POST["PeopleNumber"]) && isset($_POST["allergenes"])
   ) {
     $IDUser = $_SESSION["IDUser"];
     $DateResa = $_POST["DateResa"];
     $TimeResa = $_POST["TimeResa"];
     $PeopleNumber = $_POST["PeopleNumber"];
-    $Allergens = $_POST["Allergens"];
+    $Allergens = $_POST["allergenes"];
+
     try {
       $pdo = new PDO('mysql:host=localhost;dbname=quaiantique', 'root', '');
-      $tmt = $pdo->prepare("insert into reservation(IDUser, DateResa, TimeResa, PeopleNumber, Allergens) values (?,?,?,?)");
+      $tmt = $pdo->prepare("insert into reservation(ID_User, DateResa, TimeResa, PeopleNumber, Allergens) values (?,?,?,?,?)");
       $tmt->execute(array('' . $IDUser . '', '' . $DateResa . '', '' . $TimeResa . '', '' . $PeopleNumber . '', '' . $Allergens . ''));
 
       $uri = $_SERVER['HTTP_HOST'] . '/' . substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/')) . '/';
@@ -34,6 +30,8 @@ if (isset($_SESSION["IDUser"]) != NULL) {
     Merci de bien vouloire vous connnectez 
     <img src= data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABG0lEQVR4nO2UXUpCURSFr75V4gQiiagJJERBM8nKxlEJidU80h6SZhEUQZMIKhyAZj3kF/e2Armcc93nBD25Hs/69l7nP0nmihXQwq6T0ObLwDAgYATUQgKuVXhjYPtiu9bmO8AEeAdWDfyKVpDW7M6Cy8CjZnTm8DM5xtuyntIeRQFHAl+ApYCABeBZ9qGveQV4E7TnYTJ5vMaPywCouoBLAfdAKSKgBNwJOc+ba8AY+AK2nEtMigPkb6rHJ7DhCpj8MaCugA9gPW9eqP7Bt0VFym1Rx3fIrwIaEQH7hYcsqBl5TRenrunBrGX+PrR2QEDH9NAEb+uwx8avomb+KqaKeppR38Deir0yNf+X7zoVcBoQcJwVzZVE6BsB+oxsBvwXyAAAAABJRU5ErkJggg== ></p>";
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,44 +54,62 @@ if (isset($_SESSION["IDUser"]) != NULL) {
 
     function Resa() {
 
-      ul.innerHTML = localStorage.getItem("list");
+      var addAllergen = document.getElementById("Allergens").value;
+      if (addAllergen != "") {
+        addLiAllergen(addAllergen);
+        verifAllergen();
+      }
+    }
 
-      const spanDels = document.querySelectorAll(".delete");
+    function addLiAllergen(allergen) {
+      var ul = document.getElementById("listAllergens");
+      var nBLi = ul.getElementsByTagName("LI").length;
+      var li = document.createElement("li");
+      li.appendChild(createLine(allergen, nBLi));
+      li.style.textDecoration = "none";
+      li.style.listStyleType = "none";
+      li.setAttribute("id", "allergen" + nBLi);
+      ul.appendChild(li);
 
-      for (let span of spanDels) {
-        span.onclick = () => del(span.parentElement)
+      var inputAl = document.getElementById("allergenes");
+      inputAl.value += allergen + "+allergen" + nBLi + "/";
+
+    }
+
+    function createLine(allergen, id) {
+      var img = new Image();
+      img.src = 'picture/delete.png';
+      img.classList.add("delete");
+      var line = document.createElement("a")
+      var linkText = document.createTextNode(allergen);
+      line.appendChild(linkText);
+      line.appendChild(img);
+      line.href = "javascript:deleteResa(" + id + ");";
+      return line;
+    }
+
+    function deleteResa(id) {
+
+      var DelAllergen = document.getElementById("allergen" + id);
+      var inputAl = document.getElementById("allergenes");
+      var valueInput = inputAl.value;
+      valueInput = valueInput.replace(DelAllergen.textContent + "+" + DelAllergen.id + "/", '');
+      inputAl.value = valueInput;
+      DelAllergen.remove();
+      verifAllergen();
+    }
+
+    function verifAllergen() {
+      var ul = document.getElementById("listAllergens");
+      var nBLi = ul.getElementsByTagName("LI").length;
+      var allergen = document.getElementById("noAllergens");
+
+      if (nBLi > 0) {
+        allergen.style.display = "none";
+      } else {
+        allergen.style.display = "block";
       }
 
-      noAllergens.style.display = (ul.innerHTML == "") ? "block" : "none"; //Pas d'allergenes
-
-      form.onclick = (event) => {
-        const li = document.createElement("li"); //Creation d'une li
-        const spanDel = document.createElement("span"); //Creation <span> icone delete 
-        spanDel.className = "fa-solid fa-delete-left"; //Creation class icone
-        spanDel.classList.add("delete") //Creation class delete
-
-        spanDel.onclick = () => del(li); // Suppretion du li en un clique 
-        li.innerHTML = textFile.value; //Creation article + icone
-
-
-        li.appendChild(spanDel);
-        ul.appendChild(li);
-
-        textFile.value = "";
-        noAllergens.style.display = "none";
-
-        localStorage.setItem("list", ul.innerHTML) //Recuperation de la list
-
-        event.preventDefault();
-      }
-
-      function del(element) {
-        element.remove();
-
-        noAllergens.style.display = (ul.innerHTML == "") ? "block" : "none"; //Pas d'allergenes
-
-        localStorage.setItem("list", ul.innerHTML) //Recuperation de la list
-      }
     }
   </script>
 
@@ -110,32 +126,35 @@ if (isset($_SESSION["IDUser"]) != NULL) {
         <form action="reservation.php" method="post">
           <div class="form-row">
             <input required type="Date" name="DateResa" id="datePickerId">
-            <select required name="TimeResa">
-              <option required value="hour-select">Séléctionnez l'heures</option>
-              <option value="12"><?php
-                                  echo $helpC->SearcheParameter("PARAM_ResaHoraire1")
-                                  ?></option>
-              <option value="12"><?php
-                                  echo $helpC->SearcheParameter("PARAM_ResaHoraire2")
-                                  ?></option>
-              <option value="12"><?php
-                                  echo $helpC->SearcheParameter("PARAM_ResaHoraire3")
-                                  ?></option>
-              <option value="12"><?php
-                                  echo $helpC->SearcheParameter("PARAM_ResaHoraire4")
-                                  ?></option>
-              <option value="12"><?php
-                                  echo $helpC->SearcheParameter("PARAM_ResaHoraire5")
-                                  ?></option>
-              <option value="12"><?php
-                                  echo $helpC->SearcheParameter("PARAM_ResaHoraire6")
-                                  ?></option>
-              <option value="12"><?php
-                                  echo $helpC->SearcheParameter("PARAM_ResaHoraire7")
-                                  ?></option>
-              <option value="12"><?php
-                                  echo $helpC->SearcheParameter("PARAM_ResaHoraire8")
-                                  ?></option>
+            <select required name="TimeResa" id="TimeResa">
+              <optgroup label="Matin">
+                <option value=<?php echo $helpC->SearcheParameter("PARAM_ResaHoraire1") ?>><?php
+                                                                                            echo $helpC->SearcheParameter("PARAM_ResaHoraire1")
+                                                                                            ?></option>
+                <option value=<?php echo $helpC->SearcheParameter("PARAM_ResaHoraire2") ?>><?php
+                                                                                            echo $helpC->SearcheParameter("PARAM_ResaHoraire2")
+                                                                                            ?></option>
+                <option value=<?php echo $helpC->SearcheParameter("PARAM_ResaHoraire3") ?>><?php
+                                                                                            echo $helpC->SearcheParameter("PARAM_ResaHoraire3")
+                                                                                            ?></option>
+              </optgroup>
+              <optgroup label="Soir">
+                <option value=<?php echo $helpC->SearcheParameter("PARAM_ResaHoraire4") ?>><?php
+                                                                                            echo $helpC->SearcheParameter("PARAM_ResaHoraire4")
+                                                                                            ?></option>
+                <option value=<?php echo $helpC->SearcheParameter("PARAM_ResaHoraire5") ?>><?php
+                                                                                            echo $helpC->SearcheParameter("PARAM_ResaHoraire5")
+                                                                                            ?></option>
+                <option value=<?php echo $helpC->SearcheParameter("PARAM_ResaHoraire6") ?>><?php
+                                                                                            echo $helpC->SearcheParameter("PARAM_ResaHoraire6")
+                                                                                            ?></option>
+                <option value=<?php echo $helpC->SearcheParameter("PARAM_ResaHoraire7") ?>><?php
+                                                                                            echo $helpC->SearcheParameter("PARAM_ResaHoraire7")
+                                                                                            ?></option>
+                <option value=<?php echo $helpC->SearcheParameter("PARAM_ResaHoraire8") ?>><?php
+                                                                                            echo $helpC->SearcheParameter("PARAM_ResaHoraire8")
+                                                                                            ?></option>
+              </optgroup>
             </select>
           </div>
 
@@ -145,24 +164,20 @@ if (isset($_SESSION["IDUser"]) != NULL) {
             <input required type="number" class="peopleNumber" name="PeopleNumber" placeholder="Combien de personnes?" min="1">
             <input class="add" id="addTable" type="submit" value="RÉSERVER TABLE">
           </div>
-        </form>
 
-        <div class="form-row">
-          <form id="form">
-            <input required autocomplete="off" name="Allergens" id="textFile" type="text" value="" placeholder="Ajouter un allergène">
-            <button class="add" id="addAllergens" type="button" value="+"></button>
-          </form>
+          <div class="form-row">
+            <input autocomplete="off" name="Allergens" id="Allergens" type="text" value="" placeholder="Ajouter un allergène">
+            <input type="hidden" name="allergenes" id="allergenes" value="" />
+            <button class="add" id="addAllergens" type="button">+</button>
+
+          </div>
 
           <div id="noAllergens" class="tempo">Pas d'allergènes.</div>
-
-
           <div class="list">
-            <ul id="ul">
+            <ul id="listAllergens">
             </ul>
           </div>
-        </div>
-
-
+        </form>
       </div>
     </div>
   </section>
