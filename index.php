@@ -122,6 +122,14 @@ if (isset($_SESSION["Role"]) && $_SESSION["Role"] == 1) {
     </div>
   </section>
 
+
+  <div class="smallpic">
+    <img src="picture/flatOs.jpg" alt="flatOs" class="picture" id="flatOs" width="auto" height="auto">
+    <img src="picture/flatCarpa.jpg" alt="flatCarpa" class="picture" id="flatCarpa" width="auto" height="auto">
+    <img src="picture/flatTira.jpg" alt="flatTira" class="picture" id="flatTira" width="auto" height="auto">
+  </div>
+
+
   <div class="imgSchedule" id="imgschedule">
     <img src="picture/schedule.jpg" alt="schedule" height="100%" width="100%">
   </div>
