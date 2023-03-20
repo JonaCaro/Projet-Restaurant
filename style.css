@@ -489,7 +489,9 @@ section{
 	flex-direction: row;
 }
 
-#menu1, #menu2{
-	height: 100%;
-	width: 100%;
+@media (max-width: 1890px){
+	#menu1, #menu2{
+		height: 100%;
+		width: 100%;
+	}
 }
