@@ -1,6 +1,11 @@
 <?php
 require_once('Helper.php');
 $helpC = new HelperClass();
+
+require_once('HelperMenu.php');
+$helpM = new HelperMenuClass();
+$helpP = new HelperPriceClass();
+$helpD = new HelperDescriptionClass();
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +15,7 @@ $helpC = new HelperClass();
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="menu.css">
   <title>La Carte</title>
 </head>
 
@@ -19,16 +24,420 @@ $helpC = new HelperClass();
     <a href="index.php" class="back"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACKElEQVR4nO2Zv2sUURDHJ6BIVGwkloKgaJukURttYvZmNiqYK4JVEOxS5HbemlRXaW8hktK9zGy4LhFjYaH/QLRLRDFC0oiCiOAPVDjZmOJu3Yuou7d58D4w7e18buc77x0H4HA4HI5e87h+bo9w5Uo0M3YcbKM5Xe1XpvtqqKVMm2ATzXr1oBp6tNX8doEtRMHIETH0tL15awSaN/yjyvQ83bwVAlLzT4nBjazmd72ABDQsTG+7Nb+rBeKAzivjx52a71LflOm9GlxTg0vCeEtCGo2CkQM9FZAdxuafiumLGowTmRZAX+ECyvgiV4G2SrbZPOOlQgUWjD/0p/nPQeRhFIwdK20DZYV47vrw3nszlw9rzRtUgxPKdEcZX3aVYPoghqqlnAF/s4UaoXdaDDWE6Xt2RrBenMSsNyCMK3msUTF0Qgwtdxmp28UYJN/glHdIGZ/kdQ5I6E8K46fevonpar8wLuZ1kGnNGxTGN79JhDQOxf4WoGg7gKv/+3mSjFRKIgl2odtp68Hsn0mykd/Kxo5xSnICNjEf4LWMYF8Em1DGBymBZz25duRFw4yeFIM/2iVi9i+ATYghSQVawSbiEM92hhk/L9X9/WALLYA+ZXpl9xgx3k2dzjfBJsTQ1c4c4CLYxILxhzrXKa6BTTRnvYGUwDuwieUpb1/qWvEVbENzuraXhjqBklHb34AwvW7bQutgG3FQqSR/oPwq9Mrux+FwOCCTn6VWyjI7NiWLAAAAAElFTkSuQmCC">
     </a>
   </header>
-  <section>
-    <div class="menu">
-      <img id="menu1" src=<?php
-                          echo $helpC->SearcheParameter("PARAM_PictureMenu1")
-                          ?> alt="menu1">
-      <img id="menu2" src=<?php
-                          echo $helpC->SearcheParameter("PARAM_PictureMenu2")
-                          ?> alt="menu2">
-    </div>
-  </section>
+  <div class="position">
+    <section class="backmenu">
+      <div>
+        <div class="title">
+          <h2>FORMULES</h2>
+        </div>
+        <div class="priceFlatAlignment">
+          <table>
+            <tr>
+              <td>
+                <?php
+                echo $helpM->SearcheParameter("PARAM_FormuleOne")
+                ?></td>
+              <td class="price">
+                <?php
+                echo $helpP->SearcheParameter("PARAM_FormuleOne")
+                ?></td>
+            </tr>
+            <tr>
+              <td class="tableBorderTop tableBorderBottom">
+                <?php
+                echo $helpM->SearcheParameter("PARAM_FormuleTwo")
+                ?></td>
+              <td class="price tableBorderTop tableBorderBottom">
+                <?php
+                echo $helpP->SearcheParameter("PARAM_FormuleTwo")
+                ?></td>
+            </tr>
+            <tr>
+              <td>
+                <?php
+                echo $helpM->SearcheParameter("PARAM_FormuleThree")
+                ?>
+              </td>
+              <td class="price">
+                <?php
+                echo $helpP->SearcheParameter("PARAM_FormuleThree")
+                ?></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="menu">
+        <div>
+          <div class="titleMenu">
+            <h2 class="tableBorderBottom">MENU A VOLONTE</h2>
+          </div>
+          <div class="flatCarpa">
+            <table>
+              <tr>
+                <td>
+                  <?php
+                  echo $helpM->SearcheParameter("PARAM_MenuVolonte")
+                  ?>
+                </td>
+                <td class="price">
+                  <?php
+                  echo $helpP->SearcheParameter("PARAM_MenuVolonte")
+                  ?>
+                </td>
+              </tr>
+              <tr>
+                <td class="small">
+                  <?php
+                  echo $helpD->SearcheParameter("PARAM_MenuVolonte")
+                  ?>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div>
+          <div class="titleMenu">
+            <h2 class="tableBorderBottom">MENU ENFANT</h2>
+          </div>
+          <div class="flatChild">
+            <table>
+              <tr>
+                <td>
+                  <?php
+                  echo $helpM->SearcheParameter("PARAM_MenuChildOne")
+                  ?></td>
+                <td class="price">
+                  <?php
+                  echo $helpP->SearcheParameter("PARAM_MenuChildOne")
+                  ?></td>
+              </tr>
+              <tr>
+                <td class="small">
+                  <?php
+                  echo $helpD->SearcheParameter("PARAM_MenuChildOne")
+                  ?>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <?php
+                  echo $helpM->SearcheParameter("PARAM_MenuChildTwo")
+                  ?></td>
+                <td class="price">
+                  <?php
+                  echo $helpP->SearcheParameter("PARAM_MenuChildTwo")
+                  ?></td>
+              </tr>
+              <tr>
+                <td class="small">
+                  <?php
+                  echo $helpD->SearcheParameter("PARAM_MenuChildTwo")
+                  ?>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="title">
+          <h2 class="tableBorderBottom">BOISSONS</h2>
+        </div>
+        <div class="allDrinks">
+          <table>
+            <tr>
+              <td>
+                <?php
+                echo $helpM->SearcheParameter("PARAM_DrinkColdOne")
+                ?></td>
+              <td class="price">
+                <?php
+                echo $helpP->SearcheParameter("PARAM_DrinkColdOne")
+                ?></td>
+              <td>
+                <?php
+                echo $helpM->SearcheParameter("PARAM_DrinkHotOne")
+                ?></td>
+              <td class="price">
+                <?php
+                echo $helpP->SearcheParameter("PARAM_DrinkHotOne")
+                ?></td>
+            </tr>
+            <tr>
+              <td>
+                <?php
+                echo $helpM->SearcheParameter("PARAM_DrinkColdTwo")
+                ?></td>
+              <td class="price">
+                <?php
+                echo $helpP->SearcheParameter("PARAM_DrinkColdTwo")
+                ?></td>
+              <td>
+                <?php
+                echo $helpM->SearcheParameter("PARAM_DrinkHotTwo")
+                ?></td>
+              <td class="price">
+                <?php
+                echo $helpP->SearcheParameter("PARAM_DrinkHotTwo")
+                ?></td>
+            </tr>
+            <tr>
+              <td>
+                <?php
+                echo $helpM->SearcheParameter("PARAM_DrinkColdThree")
+                ?></td>
+              <td class="price">
+                <?php
+                echo $helpP->SearcheParameter("PARAM_DrinkColdThree")
+                ?></td>
+              <td>
+                <?php
+                echo $helpM->SearcheParameter("PARAM_DrinkHotThree")
+                ?></td>
+              <td class="price">
+                <?php
+                echo $helpP->SearcheParameter("PARAM_DrinkHotThree")
+                ?></td>
+            </tr>
+            <tr>
+              <td>
+                <?php
+                echo $helpM->SearcheParameter("PARAM_DrinkColdFour")
+                ?></td>
+              <td class="price">
+                <?php
+                echo $helpP->SearcheParameter("PARAM_DrinkColdFour")
+                ?></td>
+              <td>
+                <?php
+                echo $helpM->SearcheParameter("PARAM_DrinkHotFour")
+                ?></td>
+              <td class="price">
+                <?php
+                echo $helpP->SearcheParameter("PARAM_DrinkHotFour")
+                ?></td>
+            </tr>
+            <tr>
+              <td>
+                <?php
+                echo $helpM->SearcheParameter("PARAM_DrinkColdFive")
+                ?></td>
+              <td class="price">
+                <?php
+                echo $helpP->SearcheParameter("PARAM_DrinkColdFive")
+                ?></td>
+              <td>
+                <?php
+                echo $helpM->SearcheParameter("PARAM_DrinkHotFive")
+                ?></td>
+              <td class="price">
+                <?php
+                echo $helpP->SearcheParameter("PARAM_DrinkHotFive")
+                ?></td>
+            </tr>
+            <tr>
+              <td>
+                <?php
+                echo $helpM->SearcheParameter("PARAM_DrinkColdSix")
+                ?></td>
+              <td class="price">
+                <?php
+                echo $helpP->SearcheParameter("PARAM_DrinkColdSix")
+                ?></td>
+              <td>
+                <?php
+                echo $helpM->SearcheParameter("PARAM_DrinkHotSix")
+                ?></td>
+              <td class="price">
+                <?php
+                echo $helpP->SearcheParameter("PARAM_DrinkHotSix")
+                ?></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="backmenu">
+      <div>
+        <div class="title">
+          <h2>Entrée</h2>
+        </div>
+        <div class="priceFlatAlignment">
+          <table>
+            <tr>
+              <td>
+                <?php
+                echo $helpM->SearcheParameter("PARAM_EntreeOne")
+                ?></td>
+              <td class="price">
+                <?php
+                echo $helpP->SearcheParameter("PARAM_EntreeOne")
+                ?></td>
+            </tr>
+            <tr>
+              <td class="small">
+                <?php
+                echo $helpD->SearcheParameter("PARAM_EntreeOne")
+                ?>
+              </td>
+            </tr>
+            <td class="tableBorderTop">
+              <?php
+              echo $helpM->SearcheParameter("PARAM_EntreeTwo")
+              ?></td>
+            <td class="price tableBorderTop">
+              <?php
+              echo $helpP->SearcheParameter("PARAM_EntreeTwo")
+              ?></td>
+            </tr>
+            <tr>
+              <td class="small tableBorderBottom">
+                <?php
+                echo $helpD->SearcheParameter("PARAM_EntreeTwo")
+                ?>
+              </td>
+              <td class="tableBorderBottom"></td>
+            </tr>
+            <tr>
+              <td>
+                <?php
+                echo $helpM->SearcheParameter("PARAM_EntreeThree")
+                ?></td>
+              <td class="price">
+                <?php
+                echo $helpP->SearcheParameter("PARAM_EntreeThree")
+                ?></td>
+            </tr>
+            <tr>
+              <td class="small">
+                <?php
+                echo $helpD->SearcheParameter("PARAM_EntreeThree")
+                ?>
+              </td>
+          </table>
+        </div>
+      </div>
+      <div>
+        <div class="title">
+          <h2>Plats</h2>
+        </div>
+        <div class="priceFlatAlignment">
+          <table>
+            <tr>
+              <td>
+                <?php
+                echo $helpM->SearcheParameter("PARAM_FlatOne")
+                ?></td>
+              <td class="price">
+                <?php
+                echo $helpP->SearcheParameter("PARAM_FlatOne")
+                ?></td>
+            </tr>
+            <tr>
+              <td class="small">
+                <?php
+                echo $helpD->SearcheParameter("PARAM_FlatOne")
+                ?>
+              </td>
+            </tr>
+            <td class="tableBorderTop">
+              <?php
+              echo $helpM->SearcheParameter("PARAM_FlatOne")
+              ?></td>
+            <td class="price tableBorderTop">
+              <?php
+              echo $helpP->SearcheParameter("PARAM_FlatTwo")
+              ?></td>
+            </tr>
+            <tr>
+              <td class="small tableBorderBottom">
+                <?php
+                echo $helpD->SearcheParameter("PARAM_FlatOne")
+                ?></td>
+              <td class="tableBorderBottom"></td>
+            </tr>
+            <tr>
+              <td>
+                <?php
+                echo $helpM->SearcheParameter("PARAM_FlatTwo")
+                ?></td>
+              <td class="price">
+                <?php
+                echo $helpP->SearcheParameter("PARAM_FlatTwo")
+                ?></td>
+            </tr>
+            <tr>
+              <td class="small">
+                <?php
+                echo $helpD->SearcheParameter("PARAM_FlatThree")
+                ?></td>
+          </table>
+        </div>
+      </div>
+      <div>
+        <div class="title">
+          <h2>Dessert</h2>
+        </div>
+        <div class="priceFlatAlignment">
+          <table>
+            <tr>
+              <td>
+                <?php
+                echo $helpM->SearcheParameter("PARAM_DessertOne")
+                ?></td>
+              <td class="price">
+                <?php
+                echo $helpP->SearcheParameter("PARAM_DessertOne")
+                ?></td>
+            </tr>
+            <tr>
+              <td class="small">
+                <?php
+                echo $helpD->SearcheParameter("PARAM_DessertOne")
+                ?>
+              </td>
+            </tr>
+            <td class="tableBorderTop">
+              <?php
+              echo $helpM->SearcheParameter("PARAM_DessertTwo")
+              ?></td>
+            <td class="price tableBorderTop">
+              <?php
+              echo $helpP->SearcheParameter("PARAM_DessertTwo")
+              ?></td>
+            </tr>
+            <tr>
+              <td class="small tableBorderBottom">
+                <?php
+                echo $helpD->SearcheParameter("PARAM_DessertTwo")
+                ?>
+              </td>
+              <td class="tableBorderBottom"></td>
+            </tr>
+            <tr>
+              <td>
+                <?php
+                echo $helpM->SearcheParameter("PARAM_DessertThree")
+                ?></td>
+              <td class="price">
+                <?php
+                echo $helpP->SearcheParameter("PARAM_DessertThree")
+                ?></td>
+            </tr>
+            <tr>
+              <td class="small">
+                <?php
+                echo $helpD->SearcheParameter("PARAM_DessertThree")
+                ?>
+              </td>
+          </table>
+          <div>
+            <ul>
+            </ul>
+          </div>
+        </div>
+    </section>
+  </div>
 
   <footer>
     <div class="contact" id="contact">

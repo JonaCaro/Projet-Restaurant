@@ -8,7 +8,7 @@ class HelperClass
   public function SearcheParameter($param)
   {
     $pdo = new PDO('mysql:host=localhost;dbname=quaiantique', 'root', '');
-    $tmt = $pdo->prepare("SELECT ParameterValue FROM adminparameters where ParameterName = ? ");
+    $tmt = $pdo->prepare("SELECT ParameterValue FROM adminparametershourly where ParameterName = ? ");
     $tmt->execute(array('' . $param . ''));
 
     $row = $tmt->fetch(PDO::FETCH_ASSOC);
