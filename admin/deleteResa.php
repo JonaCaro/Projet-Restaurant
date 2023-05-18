@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once('../pdo.php');
 
 $role = 0;
 if (isset($_SESSION["Role"])) {
@@ -12,10 +13,9 @@ if (isset($_SESSION["Role"])) {
 if (isset($_GET["id"]) && $_SESSION["Role"] == 1) {
 
   try {
-    $pdo = new PDO('mysql:host=localhost;dbname=quaiantique', 'root', '');
 
-    $recupParam = $pdo->prepare("SELECT * FROM reservation p where p.id = ?");
-    $recupParam->execute(array('' . $_GET["id"] . ''));
+    $PhpData = new HelperBDD();
+    $recupParam = $PhpData->selectReservationById($_GET["id"]);
   } catch (PDOException $e) {
     echo $e;
   }

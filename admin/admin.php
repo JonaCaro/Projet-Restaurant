@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 $role = 0;
@@ -10,11 +9,6 @@ if (isset($_SESSION["Role"]) && $_SESSION["Role"] == 1) {
 }
 
 if ($role == 1) {
-  try {
-    $pdo = new PDO('mysql:host=localhost;dbname=quaiantique', 'root', '');
-  } catch (PDOException $e) {
-    echo $e;
-  }
 ?>
   <!DOCTYPE html>
   <html lang="en">

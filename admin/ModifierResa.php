@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once('../pdo.php');
 
 $role = 0;
 if (isset($_SESSION["Role"])) {
@@ -19,11 +20,8 @@ if (
     $PeopleNumber =  $_POST["PeopleNumber"];
     $id =  $_POST["idResa"];
 
-    $pdo = new PDO('mysql:host=localhost;dbname=quaiantique', 'root', '');
-    $tmt = $pdo->prepare("update reservation r set r.DateResa =?, r.TimeResa = ? , r.Allergens = ?, r.PeopleNumber = ?
-     where r.ID = ?");
-    $tmt->execute(array($dateResa, $timeResa, $allergen, $PeopleNumber, $id));
-
+    $PhpData = new HelperBDD();
+    $tmt = $PhpData->UpdateReservation($dateResa, $timeResa, $allergen, $PeopleNumber, $id);
 
     if ($tmt->rowCount() == 1) {
       $uri = $_SERVER['HTTP_HOST'] . '/' . substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/')) . '/';

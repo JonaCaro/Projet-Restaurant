@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require_once('../pdo.php');
 $role = 0;
 if (isset($_SESSION["Role"]) && $_SESSION["Role"] == 1) {
   $role = 1;
@@ -10,9 +10,9 @@ if (isset($_SESSION["Role"]) && $_SESSION["Role"] == 1) {
 
 if ($role == 1) {
   try {
-    $pdo = new PDO('mysql:host=localhost;dbname=quaiantique', 'root', '');
 
-    $recupParam = $pdo->query("SELECT * FROM adminparametersindex");
+    $PhpData = new HelperBDD();
+    $recupParam = $PhpData->SelectParamIndex();
   } catch (PDOException $e) {
     echo $e;
   }

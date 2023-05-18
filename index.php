@@ -1,13 +1,9 @@
 <?php
 
 require_once('Helper.php');
-$helpC = new HelperClass();
-
-require_once('HelperIndex.php');
-$helpI = new HelperIndexClass();
+$helperMenu = new HelperClass();
 
 session_start();
-
 
 $con = false;
 
@@ -73,7 +69,7 @@ if (isset($_SESSION["Role"]) && $_SESSION["Role"] == 1) {
   </nav>
 
   <div id="welcomeBanner">
-    <img src="picture/<?php echo $helpI->SearcheParameter("PARAM_Banner") ?>" alt="welcomeBanner" height="100%" width="100%">
+    <img src="picture/<?php echo  $helperMenu->SearcheParameterIndex("PARAM_Banner") ?>" alt="welcomeBanner" height="100%" width="100%">
   </div>
 
   <section id="presentation">
@@ -91,92 +87,99 @@ if (isset($_SESSION["Role"]) && $_SESSION["Role"] == 1) {
     </div>
     <div>
       <video id="video" height="100%" width="100%" controls>
-        <source src="video/<?php echo $helpI->SearcheParameter("PARAM_Video") ?>" type="video/mp4">
+        <source src="video/<?php echo  $helperMenu->SearcheParameterIndex("PARAM_Video") ?>" type="video/mp4">
         Désolé votre ordinateur ne peux pas lire la vidéo.
       </video>
     </div>
   </section>
   <section class="pictureFlat">
     <div class="flat">
-      <img src="picture/<?php echo $helpI->SearcheParameter("PARAM_PictureOne") ?>" alt="flatCarpa" class="flatCarpa">
+      <img src="picture/<?php echo  $helperMenu->SearcheParameterIndex("PARAM_PictureOne") ?>" alt="flatCarpa" class="flatCarpa">
     </div>
   </section>
   <section class="pictureFlat">
     <div class="flat">
-      <img src="picture/<?php echo $helpI->SearcheParameter("PARAM_PictureTwo") ?>" alt="flatOs" class="flatOs">
+      <img src="picture/<?php echo  $helperMenu->SearcheParameterIndex("PARAM_PictureTwo") ?>" alt="flatOs" class="flatOs">
     </div>
     <div class="buttonImg">
-      <a href="menu.php" class="buttonImg" id="menu">La Carte</a>
+      <a href="menu.php" class="buttonImg" id="menu">La.Carte</a>
       <a href="reservation.php" class="buttonImg" id="reserver">Réserver</a>
     </div>
     <div class="flat">
-      <img src="picture/<?php echo $helpI->SearcheParameter("PARAM_PictureThree") ?>" alt="flatTira" class="flatTira">
+      <img src="picture/<?php echo  $helperMenu->SearcheParameterIndex("PARAM_PictureThree") ?>" alt="flatTira" class="flatTira">
     </div>
   </section>
 
-  <div class="smallpic">
-    <img src="picture/<?php echo $helpI->SearcheParameter("PARAM_PictureOne") ?>" alt="flatOs" class="picture" id="flatOs" width="auto" height="auto">
-    <img src="picture/<?php echo $helpI->SearcheParameter("PARAM_PictureTwo") ?>" alt="flatCarpa" class="picture" id="flatCarpa" width="auto" height="auto">
-    <img src="picture/<?php echo $helpI->SearcheParameter("PARAM_PictureThree") ?>" alt="flatTira" class="picture" id="flatTira" width="auto" height="auto">
-  </div>
+  <section>
+    <div class="smallpic">
+      <img src="picture/<?php echo  $helperMenu->SearcheParameterIndex("PARAM_PictureOne") ?>" alt="flatOs" class="picture" id="flatOs" width="auto" height="auto">
+      <img src="picture/<?php echo  $helperMenu->SearcheParameterIndex("PARAM_PictureTwo") ?>" alt="flatCarpa" class="picture" id="flatCarpa" width="auto" height="auto">
+      <img src="picture/<?php echo  $helperMenu->SearcheParameterIndex("PARAM_PictureThree") ?>" alt="flatTira" class="picture" id="flatTira" width="auto" height="auto">
+    </div>
 
-
-  <div class="imgSchedule" id="imgschedule">
-    <table class="schedule">
-      <tr>
-        <th>Lundi:</th>
-        <td><?php
-            echo $helpC->SearcheParameter("PARAM_LundiHoraire")
-            ?></td>
-      </tr>
-      <tr>
-        <th>Mardi:</th>
-        <td><?php
-            echo $helpC->SearcheParameter("PARAM_MardiHoraire")
-            ?></td>
-      </tr>
-      <tr>
-        <th>Mercredi:</th>
-        <td><?php
-            echo $helpC->SearcheParameter("PARAM_MercrediHoraire")
-            ?></td>
-      </tr>
-      <tr>
-        <th>Jeudi:</th>
-        <td><?php
-            echo $helpC->SearcheParameter("PARAM_JeudiHoraire")
-            ?></td>
-      </tr>
-      <tr>
-        <th>Vendredi:</th>
-        <td><?php
-            echo $helpC->SearcheParameter("PARAM_VendrediHoraireMidi")
-            ?> /</td>
-        <td><?php
-            echo $helpC->SearcheParameter("PARAM_VendrediHoraireSoire")
-            ?></td>
-      </tr>
-      <tr>
-        <th>Samedi:</th>
-        <td><?php
-            echo $helpC->SearcheParameter("PARAM_SamediHoraireMidi")
-            ?> /</td>
-        <td><?php
-            echo $helpC->SearcheParameter("PARAM_SamediHoraireSoire")
-            ?></td>
-      </tr>
-      <tr>
-        <th>Dimanche:</th>
-        <td><?php
-            echo $helpC->SearcheParameter("PARAM_DimancheHoraireMidi")
-            ?> /</td>
-        <td><?php
-            echo $helpC->SearcheParameter("PARAM_DimancheHoraireSoire")
-            ?></td>
-      </tr>
-    </table>
-  </div>
-  </div>
+    <div class="buttonImgSmall">
+      <a href="menu.php" class="buttonImg" id="menu">La.Carte</a>
+      <a href="reservation.php" class="buttonImg" id="reserver">Réserver</a>
+    </div>
+  </section>
+  <section class="contentSchedule">
+    <div class="imgSchedule" id="imgschedule">
+      <table class="schedule">
+        <tr>
+          <th>Lundi:</th>
+          <td><?php
+              echo $helperMenu->SearcheParameterHourly("PARAM_LundiHoraire")
+              ?></td>
+        </tr>
+        <tr>
+          <th>Mardi:</th>
+          <td><?php
+              echo $helperMenu->SearcheParameterHourly("PARAM_MardiHoraire")
+              ?></td>
+        </tr>
+        <tr>
+          <th>Mercredi:</th>
+          <td><?php
+              echo $helperMenu->SearcheParameterHourly("PARAM_MercrediHoraire")
+              ?></td>
+        </tr>
+        <tr>
+          <th>Jeudi:</th>
+          <td><?php
+              echo $helperMenu->SearcheParameterHourly("PARAM_JeudiHoraire")
+              ?></td>
+        </tr>
+        <tr>
+          <th>Vendredi:</th>
+          <td><?php
+              echo $helperMenu->SearcheParameterHourly("PARAM_VendrediHoraireMidi")
+              ?> /</td>
+          <td><?php
+              echo $helperMenu->SearcheParameterHourly("PARAM_VendrediHoraireSoire")
+              ?></td>
+        </tr>
+        <tr>
+          <th>Samedi:</th>
+          <td><?php
+              echo $helperMenu->SearcheParameterHourly("PARAM_SamediHoraireMidi")
+              ?> /</td>
+          <td><?php
+              echo $helperMenu->SearcheParameterHourly("PARAM_SamediHoraireSoire")
+              ?></td>
+        </tr>
+        <tr>
+          <th>Dimanche:</th>
+          <td><?php
+              echo $helperMenu->SearcheParameterHourly("PARAM_DimancheHoraireMidi")
+              ?> /</td>
+          <td><?php
+              echo $helperMenu->SearcheParameterHourly("PARAM_DimancheHoraireSoire")
+              ?></td>
+        </tr>
+      </table>
+    </div>
+    <img src="picture/schedule.jpg" alt="schedule" width="100%" height="100%">
+  </section>
 
   <footer>
     <div class="contact" id="contact">

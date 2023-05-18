@@ -1,6 +1,6 @@
 <?php
-
 session_start();
+require_once('../pdo.php');
 
 $role = 0;
 if (isset($_SESSION["Role"]) && $_SESSION["Role"] == 1) {
@@ -11,9 +11,8 @@ if (isset($_SESSION["Role"]) && $_SESSION["Role"] == 1) {
 
 if ($role == 1) {
   try {
-    $pdo = new PDO('mysql:host=localhost;dbname=quaiantique', 'root', '');
-
-    $recupMenu = $pdo->query("SELECT * FROM adminparametersmenu");
+    $PhpData = new HelperBDD();
+    $recupMenu = $PhpData->SelectParamMenu();
   } catch (PDOException $e) {
     echo $e;
   }

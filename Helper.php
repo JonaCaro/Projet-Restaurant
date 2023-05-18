@@ -1,17 +1,41 @@
 <?php
+
+require_once('pdo.php');
 class HelperClass
 {
   public function __construct()
   {
   }
 
-  public function SearcheParameter($param)
-  {
-    $pdo = new PDO('mysql:host=localhost;dbname=quaiantique', 'root', '');
-    $tmt = $pdo->prepare("SELECT ParameterValue FROM adminparametershourly where ParameterName = ? ");
-    $tmt->execute(array('' . $param . ''));
 
-    $row = $tmt->fetch(PDO::FETCH_ASSOC);
-    return $row['ParameterValue'];
+
+  public function SearcheParameterIndex($paramI)
+  {
+    $PhpData = new HelperBDD();
+    return $PhpData->SearcheParameterIndex($paramI);
+  }
+
+  public function SearcheParameterHourly($param)
+  {
+    $PhpData = new HelperBDD();
+    return $PhpData->SearcheParameterHourly($param);
+  }
+
+  public function SearcheParameterValueMenu($paramM)
+  {
+    $PhpData = new HelperBDD();
+    return $PhpData->SearcheParameterValueMenu($paramM);
+  }
+
+  public function SearcheParameterPriceMenu($paramP)
+  {
+    $PhpData = new HelperBDD();
+    return $PhpData->SearcheParameterPriceMenu($paramP);
+  }
+
+  public function SearcheParameterDescriptionMenu($paramD)
+  {
+    $PhpData = new HelperBDD();
+    return $PhpData->SearcheParameterDescriptionMenu($paramD);
   }
 }

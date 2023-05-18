@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once('../pdo.php');
 
 $role = 0;
 if (isset($_SESSION["Role"])) {
@@ -12,10 +13,9 @@ if (isset($_SESSION["Role"])) {
 if (isset($_GET["id"]) && $_SESSION["Role"] == 1) {
 
   try {
-    $pdo = new PDO('mysql:host=localhost;dbname=quaiantique', 'root', '');
 
-    $recupParam = $pdo->prepare("SELECT * FROM adminparametersindex p where p.id = ?");
-    $recupParam->execute(array('' . $_GET["id"] . ''));
+    $PhpData = new HelperBDD();
+    $recupParam = $PhpData->selectIndexParameterById($_GET["id"]);
   } catch (PDOException $e) {
     echo $e;
   }
@@ -38,7 +38,7 @@ if (isset($_GET["id"]) && $_SESSION["Role"] == 1) {
     </a>
     <h1 class="title">Modifier page Accueil</h1>
     <div class="box">
-      <form action="ModifierParam.php" method="POST">
+      <form action="ModifierIndex.php" method="POST">
         <table id="tableParam">
           <tr>
             <th>ID</th>

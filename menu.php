@@ -1,11 +1,6 @@
 <?php
 require_once('Helper.php');
-$helpC = new HelperClass();
-
-require_once('HelperMenu.php');
-$helpM = new HelperMenuClass();
-$helpP = new HelperPriceClass();
-$helpD = new HelperDescriptionClass();
+$helperMenu = new HelperClass();
 ?>
 
 <!DOCTYPE html>
@@ -35,32 +30,32 @@ $helpD = new HelperDescriptionClass();
             <tr>
               <td>
                 <?php
-                echo $helpM->SearcheParameter("PARAM_FormuleOne")
+                echo $helperMenu->SearcheParameterValueMenu("PARAM_FormuleOne")
                 ?></td>
               <td class="price">
                 <?php
-                echo $helpP->SearcheParameter("PARAM_FormuleOne")
+                echo $helperMenu->SearcheParameterPriceMenu("PARAM_FormuleOne")
                 ?></td>
             </tr>
             <tr>
               <td class="tableBorderTop tableBorderBottom">
                 <?php
-                echo $helpM->SearcheParameter("PARAM_FormuleTwo")
+                echo $helperMenu->SearcheParameterValueMenu("PARAM_FormuleTwo")
                 ?></td>
               <td class="price tableBorderTop tableBorderBottom">
                 <?php
-                echo $helpP->SearcheParameter("PARAM_FormuleTwo")
+                echo $helperMenu->SearcheParameterPriceMenu("PARAM_FormuleTwo")
                 ?></td>
             </tr>
             <tr>
               <td>
                 <?php
-                echo $helpM->SearcheParameter("PARAM_FormuleThree")
+                echo $helperMenu->SearcheParameterValueMenu("PARAM_FormuleThree")
                 ?>
               </td>
               <td class="price">
                 <?php
-                echo $helpP->SearcheParameter("PARAM_FormuleThree")
+                echo $helperMenu->SearcheParameterPriceMenu("PARAM_FormuleThree")
                 ?></td>
             </tr>
           </table>
@@ -76,19 +71,19 @@ $helpD = new HelperDescriptionClass();
               <tr>
                 <td>
                   <?php
-                  echo $helpM->SearcheParameter("PARAM_MenuVolonte")
+                  echo $helperMenu->SearcheParameterValueMenu("PARAM_MenuVolonte")
                   ?>
                 </td>
                 <td class="price">
                   <?php
-                  echo $helpP->SearcheParameter("PARAM_MenuVolonte")
+                  echo $helperMenu->SearcheParameterPriceMenu("PARAM_MenuVolonte")
                   ?>
                 </td>
               </tr>
               <tr>
                 <td class="small">
                   <?php
-                  echo $helpD->SearcheParameter("PARAM_MenuVolonte")
+                  echo $helperMenu->SearcheParameterDescriptionMenu("PARAM_MenuVolonte")
                   ?>
                 </td>
               </tr>
@@ -104,34 +99,34 @@ $helpD = new HelperDescriptionClass();
               <tr>
                 <td>
                   <?php
-                  echo $helpM->SearcheParameter("PARAM_MenuChildOne")
+                  echo $helperMenu->SearcheParameterValueMenu("PARAM_MenuChildOne")
                   ?></td>
                 <td class="price">
                   <?php
-                  echo $helpP->SearcheParameter("PARAM_MenuChildOne")
+                  echo $helperMenu->SearcheParameterPriceMenu("PARAM_MenuChildOne")
                   ?></td>
               </tr>
               <tr>
                 <td class="small">
                   <?php
-                  echo $helpD->SearcheParameter("PARAM_MenuChildOne")
+                  echo $helperMenu->SearcheParameterDescriptionMenu("PARAM_MenuChildOne")
                   ?>
                 </td>
               </tr>
               <tr>
                 <td>
                   <?php
-                  echo $helpM->SearcheParameter("PARAM_MenuChildTwo")
+                  echo $helperMenu->SearcheParameterValueMenu("PARAM_MenuChildTwo")
                   ?></td>
                 <td class="price">
                   <?php
-                  echo $helpP->SearcheParameter("PARAM_MenuChildTwo")
+                  echo $helperMenu->SearcheParameterPriceMenu("PARAM_MenuChildTwo")
                   ?></td>
               </tr>
               <tr>
                 <td class="small">
                   <?php
-                  echo $helpD->SearcheParameter("PARAM_MenuChildTwo")
+                  echo $helperMenu->SearcheParameterDescriptionMenu("PARAM_MenuChildTwo")
                   ?>
                 </td>
               </tr>
@@ -148,109 +143,109 @@ $helpD = new HelperDescriptionClass();
             <tr>
               <td>
                 <?php
-                echo $helpM->SearcheParameter("PARAM_DrinkColdOne")
+                echo $helperMenu->SearcheParameterValueMenu("PARAM_DrinkColdOne")
                 ?></td>
               <td class="price">
                 <?php
-                echo $helpP->SearcheParameter("PARAM_DrinkColdOne")
+                echo $helperMenu->SearcheParameterPriceMenu("PARAM_DrinkColdOne")
                 ?></td>
               <td>
                 <?php
-                echo $helpM->SearcheParameter("PARAM_DrinkHotOne")
+                echo $helperMenu->SearcheParameterDescriptionMenu("PARAM_DrinkHotOne")
                 ?></td>
               <td class="price">
                 <?php
-                echo $helpP->SearcheParameter("PARAM_DrinkHotOne")
+                echo $helperMenu->SearcheParameterPriceMenu("PARAM_DrinkHotOne")
                 ?></td>
             </tr>
             <tr>
               <td>
                 <?php
-                echo $helpM->SearcheParameter("PARAM_DrinkColdTwo")
+                echo $helperMenu->SearcheParameterValueMenu("PARAM_DrinkColdTwo")
                 ?></td>
               <td class="price">
                 <?php
-                echo $helpP->SearcheParameter("PARAM_DrinkColdTwo")
+                echo $helperMenu->SearcheParameterPriceMenu("PARAM_DrinkColdTwo")
                 ?></td>
               <td>
                 <?php
-                echo $helpM->SearcheParameter("PARAM_DrinkHotTwo")
+                echo $helperMenu->SearcheParameterValueMenu("PARAM_DrinkHotTwo")
                 ?></td>
               <td class="price">
                 <?php
-                echo $helpP->SearcheParameter("PARAM_DrinkHotTwo")
+                echo $helperMenu->SearcheParameterPriceMenu("PARAM_DrinkHotTwo")
                 ?></td>
             </tr>
             <tr>
               <td>
                 <?php
-                echo $helpM->SearcheParameter("PARAM_DrinkColdThree")
+                echo $helperMenu->SearcheParameterValueMenu("PARAM_DrinkColdThree")
                 ?></td>
               <td class="price">
                 <?php
-                echo $helpP->SearcheParameter("PARAM_DrinkColdThree")
+                echo $helperMenu->SearcheParameterPriceMenu("PARAM_DrinkColdThree")
                 ?></td>
               <td>
                 <?php
-                echo $helpM->SearcheParameter("PARAM_DrinkHotThree")
+                echo $helperMenu->SearcheParameterValueMenu("PARAM_DrinkHotThree")
                 ?></td>
               <td class="price">
                 <?php
-                echo $helpP->SearcheParameter("PARAM_DrinkHotThree")
+                echo $helperMenu->SearcheParameterPriceMenu("PARAM_DrinkHotThree")
                 ?></td>
             </tr>
             <tr>
               <td>
                 <?php
-                echo $helpM->SearcheParameter("PARAM_DrinkColdFour")
+                echo $helperMenu->SearcheParameterValueMenu("PARAM_DrinkColdFour")
                 ?></td>
               <td class="price">
                 <?php
-                echo $helpP->SearcheParameter("PARAM_DrinkColdFour")
+                echo $helperMenu->SearcheParameterPriceMenu("PARAM_DrinkColdFour")
                 ?></td>
               <td>
                 <?php
-                echo $helpM->SearcheParameter("PARAM_DrinkHotFour")
+                echo $helperMenu->SearcheParameterValueMenu("PARAM_DrinkHotFour")
                 ?></td>
               <td class="price">
                 <?php
-                echo $helpP->SearcheParameter("PARAM_DrinkHotFour")
+                echo $helperMenu->SearcheParameterPriceMenu("PARAM_DrinkHotFour")
                 ?></td>
             </tr>
             <tr>
               <td>
                 <?php
-                echo $helpM->SearcheParameter("PARAM_DrinkColdFive")
+                echo $helperMenu->SearcheParameterValueMenu("PARAM_DrinkColdFive")
                 ?></td>
               <td class="price">
                 <?php
-                echo $helpP->SearcheParameter("PARAM_DrinkColdFive")
+                echo $helperMenu->SearcheParameterPriceMenu("PARAM_DrinkColdFive")
                 ?></td>
               <td>
                 <?php
-                echo $helpM->SearcheParameter("PARAM_DrinkHotFive")
+                echo $helperMenu->SearcheParameterValueMenu("PARAM_DrinkHotFive")
                 ?></td>
               <td class="price">
                 <?php
-                echo $helpP->SearcheParameter("PARAM_DrinkHotFive")
+                echo $helperMenu->SearcheParameterPriceMenu("PARAM_DrinkHotFive")
                 ?></td>
             </tr>
             <tr>
               <td>
                 <?php
-                echo $helpM->SearcheParameter("PARAM_DrinkColdSix")
+                echo $helperMenu->SearcheParameterValueMenu("PARAM_DrinkColdSix")
                 ?></td>
               <td class="price">
                 <?php
-                echo $helpP->SearcheParameter("PARAM_DrinkColdSix")
+                echo $helperMenu->SearcheParameterPriceMenu("PARAM_DrinkColdSix")
                 ?></td>
               <td>
                 <?php
-                echo $helpM->SearcheParameter("PARAM_DrinkHotSix")
+                echo $helperMenu->SearcheParameterValueMenu("PARAM_DrinkHotSix")
                 ?></td>
               <td class="price">
                 <?php
-                echo $helpP->SearcheParameter("PARAM_DrinkHotSix")
+                echo $helperMenu->SearcheParameterPriceMenu("PARAM_DrinkHotSix")
                 ?></td>
             </tr>
           </table>
@@ -267,33 +262,33 @@ $helpD = new HelperDescriptionClass();
             <tr>
               <td>
                 <?php
-                echo $helpM->SearcheParameter("PARAM_EntreeOne")
+                echo $helperMenu->SearcheParameterValueMenu("PARAM_EntreeOne")
                 ?></td>
               <td class="price">
                 <?php
-                echo $helpP->SearcheParameter("PARAM_EntreeOne")
+                echo $helperMenu->SearcheParameterPriceMenu("PARAM_EntreeOne")
                 ?></td>
             </tr>
             <tr>
               <td class="small">
                 <?php
-                echo $helpD->SearcheParameter("PARAM_EntreeOne")
+                echo $helperMenu->SearcheParameterDescriptionMenu("PARAM_EntreeOne")
                 ?>
               </td>
             </tr>
             <td class="tableBorderTop">
               <?php
-              echo $helpM->SearcheParameter("PARAM_EntreeTwo")
+              echo $helperMenu->SearcheParameterValueMenu("PARAM_EntreeTwo")
               ?></td>
             <td class="price tableBorderTop">
               <?php
-              echo $helpP->SearcheParameter("PARAM_EntreeTwo")
+              echo $helperMenu->SearcheParameterPriceMenu("PARAM_EntreeTwo")
               ?></td>
             </tr>
             <tr>
               <td class="small tableBorderBottom">
                 <?php
-                echo $helpD->SearcheParameter("PARAM_EntreeTwo")
+                echo $helperMenu->SearcheParameterDescriptionMenu("PARAM_EntreeTwo")
                 ?>
               </td>
               <td class="tableBorderBottom"></td>
@@ -301,17 +296,17 @@ $helpD = new HelperDescriptionClass();
             <tr>
               <td>
                 <?php
-                echo $helpM->SearcheParameter("PARAM_EntreeThree")
+                echo $helperMenu->SearcheParameterValueMenu("PARAM_EntreeThree")
                 ?></td>
               <td class="price">
                 <?php
-                echo $helpP->SearcheParameter("PARAM_EntreeThree")
+                echo $helperMenu->SearcheParameterPriceMenu("PARAM_EntreeThree")
                 ?></td>
             </tr>
             <tr>
               <td class="small">
                 <?php
-                echo $helpD->SearcheParameter("PARAM_EntreeThree")
+                echo $helperMenu->SearcheParameterDescriptionMenu("PARAM_EntreeThree")
                 ?>
               </td>
           </table>
@@ -326,50 +321,50 @@ $helpD = new HelperDescriptionClass();
             <tr>
               <td>
                 <?php
-                echo $helpM->SearcheParameter("PARAM_FlatOne")
+                echo $helperMenu->SearcheParameterValueMenu("PARAM_FlatOne")
                 ?></td>
               <td class="price">
                 <?php
-                echo $helpP->SearcheParameter("PARAM_FlatOne")
+                echo $helperMenu->SearcheParameterPriceMenu("PARAM_FlatOne")
                 ?></td>
             </tr>
             <tr>
               <td class="small">
                 <?php
-                echo $helpD->SearcheParameter("PARAM_FlatOne")
+                echo $helperMenu->SearcheParameterDescriptionMenu("PARAM_FlatOne")
                 ?>
               </td>
             </tr>
             <td class="tableBorderTop">
               <?php
-              echo $helpM->SearcheParameter("PARAM_FlatOne")
+              echo $helperMenu->SearcheParameterValueMenu("PARAM_FlatOne")
               ?></td>
             <td class="price tableBorderTop">
               <?php
-              echo $helpP->SearcheParameter("PARAM_FlatTwo")
+              echo $helperMenu->SearcheParameterPriceMenu("PARAM_FlatTwo")
               ?></td>
             </tr>
             <tr>
               <td class="small tableBorderBottom">
                 <?php
-                echo $helpD->SearcheParameter("PARAM_FlatOne")
+                echo $helperMenu->SearcheParameterDescriptionMenu("PARAM_FlatOne")
                 ?></td>
               <td class="tableBorderBottom"></td>
             </tr>
             <tr>
               <td>
                 <?php
-                echo $helpM->SearcheParameter("PARAM_FlatTwo")
+                echo $helperMenu->SearcheParameterValueMenu("PARAM_FlatTwo")
                 ?></td>
               <td class="price">
                 <?php
-                echo $helpP->SearcheParameter("PARAM_FlatTwo")
+                echo $helperMenu->SearcheParameterPriceMenu("PARAM_FlatTwo")
                 ?></td>
             </tr>
             <tr>
               <td class="small">
                 <?php
-                echo $helpD->SearcheParameter("PARAM_FlatThree")
+                echo $helperMenu->SearcheParameterDescriptionMenu("PARAM_FlatThree")
                 ?></td>
           </table>
         </div>
@@ -383,33 +378,33 @@ $helpD = new HelperDescriptionClass();
             <tr>
               <td>
                 <?php
-                echo $helpM->SearcheParameter("PARAM_DessertOne")
+                echo $helperMenu->SearcheParameterValueMenu("PARAM_DessertOne")
                 ?></td>
               <td class="price">
                 <?php
-                echo $helpP->SearcheParameter("PARAM_DessertOne")
+                echo $helperMenu->SearcheParameterPriceMenu("PARAM_DessertOne")
                 ?></td>
             </tr>
             <tr>
               <td class="small">
                 <?php
-                echo $helpD->SearcheParameter("PARAM_DessertOne")
+                echo $helperMenu->SearcheParameterDescriptionMenu("PARAM_DessertOne")
                 ?>
               </td>
             </tr>
             <td class="tableBorderTop">
               <?php
-              echo $helpM->SearcheParameter("PARAM_DessertTwo")
+              echo $helperMenu->SearcheParameterValueMenu("PARAM_DessertTwo")
               ?></td>
             <td class="price tableBorderTop">
               <?php
-              echo $helpP->SearcheParameter("PARAM_DessertTwo")
+              echo $helperMenu->SearcheParameterPriceMenu("PARAM_DessertTwo")
               ?></td>
             </tr>
             <tr>
               <td class="small tableBorderBottom">
                 <?php
-                echo $helpD->SearcheParameter("PARAM_DessertTwo")
+                echo $helperMenu->SearcheParameterDescriptionMenu("PARAM_DessertTwo")
                 ?>
               </td>
               <td class="tableBorderBottom"></td>
@@ -417,17 +412,17 @@ $helpD = new HelperDescriptionClass();
             <tr>
               <td>
                 <?php
-                echo $helpM->SearcheParameter("PARAM_DessertThree")
+                echo $helperMenu->SearcheParameterValueMenu("PARAM_DessertThree")
                 ?></td>
               <td class="price">
                 <?php
-                echo $helpP->SearcheParameter("PARAM_DessertThree")
+                echo $helperMenu->SearcheParameterPriceMenu("PARAM_DessertThree")
                 ?></td>
             </tr>
             <tr>
               <td class="small">
                 <?php
-                echo $helpD->SearcheParameter("PARAM_DessertThree")
+                echo $helperMenu->SearcheParameterDescriptionMenu("PARAM_DessertThree")
                 ?>
               </td>
           </table>
@@ -452,52 +447,52 @@ $helpD = new HelperDescriptionClass();
         <tr>
           <th>Lundi:</th>
           <td><?php
-              echo $helpC->SearcheParameter("PARAM_LundiHoraire")
+              echo $helperMenu->SearcheParameterHourly("PARAM_LundiHoraire")
               ?></td>
         </tr>
         <tr>
           <th>Mardi:</th>
           <td><?php
-              echo $helpC->SearcheParameter("PARAM_MardiHoraire")
+              echo $helperMenu->SearcheParameterHourly("PARAM_MardiHoraire")
               ?></td>
         </tr>
         <tr>
           <th>Mercredi:</th>
           <td><?php
-              echo $helpC->SearcheParameter("PARAM_MercrediHoraire")
+              echo $helperMenu->SearcheParameterHourly("PARAM_MercrediHoraire")
               ?></td>
         </tr>
         <tr>
           <th>Jeudi:</th>
           <td><?php
-              echo $helpC->SearcheParameter("PARAM_JeudiHoraire")
+              echo $helperMenu->SearcheParameterHourly("PARAM_JeudiHoraire")
               ?></td>
         </tr>
         <tr>
           <th>Vendredi:</th>
           <td><?php
-              echo $helpC->SearcheParameter("PARAM_VendrediHoraireMidi")
+              echo $helperMenu->SearcheParameterHourly("PARAM_VendrediHoraireMidi")
               ?> /</td>
           <td><?php
-              echo $helpC->SearcheParameter("PARAM_VendrediHoraireSoire")
+              echo $helperMenu->SearcheParameterHourly("PARAM_VendrediHoraireSoire")
               ?></td>
         </tr>
         <tr>
           <th>Samedi:</th>
           <td><?php
-              echo $helpC->SearcheParameter("PARAM_SamediHoraireMidi")
+              echo $helperMenu->SearcheParameterHourly("PARAM_SamediHoraireMidi")
               ?> /</td>
           <td><?php
-              echo $helpC->SearcheParameter("PARAM_SamediHoraireSoire")
+              echo $helperMenu->SearcheParameterHourly("PARAM_SamediHoraireSoire")
               ?></td>
         </tr>
         <tr>
           <th>Dimanche:</th>
           <td><?php
-              echo $helpC->SearcheParameter("PARAM_DimancheHoraireMidi")
+              echo $helperMenu->SearcheParameterHourly("PARAM_DimancheHoraireMidi")
               ?> /</td>
           <td><?php
-              echo $helpC->SearcheParameter("PARAM_DimancheHoraireSoire")
+              echo $helperMenu->SearcheParameterHourly("PARAM_DimancheHoraireSoire")
               ?></td>
         </tr>
       </table>

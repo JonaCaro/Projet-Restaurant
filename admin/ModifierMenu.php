@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require_once('../pdo.php');
 $role = 0;
 if (isset($_SESSION["Role"])) {
   $role = 1;
@@ -18,10 +18,9 @@ if (
     $description =  $_POST["parameterDescription"];
     $id =  $_POST["idParam"];
 
-    $pdo = new PDO('mysql:host=localhost;dbname=quaiantique', 'root', '');
-    $tmt = $pdo->prepare("update adminparametersmenu p  set p.ParameterValue =?, p.ParameterPrice =?, p.ParameterDescription =? where p.ID = ?");
-    $tmt->execute(array($flatName, $price, $description, $id));
 
+    $PhpData = new HelperBDD();
+    $tmt = $PhpData->UpdateMenuParameter($flatName, $price, $description, $id);
 
     if ($tmt->rowCount() == 1) {
       $uri = $_SERVER['HTTP_HOST'] . '/' . substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/')) . '/';

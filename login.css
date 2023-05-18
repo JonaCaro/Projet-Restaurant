@@ -143,3 +143,7 @@ input[type="button"] {
   text-align: center;
   font-size: 30px;
 }
+
+.newMail{
+  display: none;
+}

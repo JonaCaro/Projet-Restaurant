@@ -1,6 +1,6 @@
 <?php
 require_once('Helper.php');
-$helpC = new HelperClass();
+$helperMenu = new HelperClass();
 
 session_start();
 if (isset($_SESSION["IDUser"]) != NULL) {
@@ -15,9 +15,8 @@ if (isset($_SESSION["IDUser"]) != NULL) {
     $Allergens = $_POST["allergenes"];
 
     try {
-      $pdo = new PDO('mysql:host=localhost;dbname=quaiantique', 'root', '');
-      $tmt = $pdo->prepare("insert into reservation(ID_User, DateResa, TimeResa, PeopleNumber, Allergens) values (?,?,?,?,?)");
-      $tmt->execute(array('' . $IDUser . '', '' . $DateResa . '', '' . $TimeResa . '', '' . $PeopleNumber . '', '' . $Allergens . ''));
+      $PhpData = new HelperBDD();
+      $tmt = $PhpData->InsertReservation($IDUser, $DateResa, $TimeResa, $PeopleNumber, $Allergens);
 
       $uri = $_SERVER['HTTP_HOST'] . '/' . substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/')) . '/';
       header('Location: http://' . $uri .  'validationResa.php');
@@ -128,32 +127,32 @@ if (isset($_SESSION["IDUser"]) != NULL) {
             <input required type="Date" name="DateResa" id="datePickerId">
             <select required name="TimeResa" id="TimeResa">
               <optgroup label="Matin">
-                <option value=<?php echo $helpC->SearcheParameter("PARAM_ResaHoraire1") ?>><?php
-                                                                                            echo $helpC->SearcheParameter("PARAM_ResaHoraire1")
-                                                                                            ?></option>
-                <option value=<?php echo $helpC->SearcheParameter("PARAM_ResaHoraire2") ?>><?php
-                                                                                            echo $helpC->SearcheParameter("PARAM_ResaHoraire2")
-                                                                                            ?></option>
-                <option value=<?php echo $helpC->SearcheParameter("PARAM_ResaHoraire3") ?>><?php
-                                                                                            echo $helpC->SearcheParameter("PARAM_ResaHoraire3")
-                                                                                            ?></option>
+                <option value=<?php echo  $helperMenu->SearcheParameterHourly("PARAM_ResaHoraire1") ?>><?php
+                                                                                                        echo  $helperMenu->SearcheParameterHourly("PARAM_ResaHoraire1")
+                                                                                                        ?></option>
+                <option value=<?php echo  $helperMenu->SearcheParameterHourly("PARAM_ResaHoraire2") ?>><?php
+                                                                                                        echo  $helperMenu->SearcheParameterHourly("PARAM_ResaHoraire2")
+                                                                                                        ?></option>
+                <option value=<?php echo  $helperMenu->SearcheParameterHourly("PARAM_ResaHoraire3") ?>><?php
+                                                                                                        echo  $helperMenu->SearcheParameterHourly("PARAM_ResaHoraire3")
+                                                                                                        ?></option>
               </optgroup>
               <optgroup label="Soir">
-                <option value=<?php echo $helpC->SearcheParameter("PARAM_ResaHoraire4") ?>><?php
-                                                                                            echo $helpC->SearcheParameter("PARAM_ResaHoraire4")
-                                                                                            ?></option>
-                <option value=<?php echo $helpC->SearcheParameter("PARAM_ResaHoraire5") ?>><?php
-                                                                                            echo $helpC->SearcheParameter("PARAM_ResaHoraire5")
-                                                                                            ?></option>
-                <option value=<?php echo $helpC->SearcheParameter("PARAM_ResaHoraire6") ?>><?php
-                                                                                            echo $helpC->SearcheParameter("PARAM_ResaHoraire6")
-                                                                                            ?></option>
-                <option value=<?php echo $helpC->SearcheParameter("PARAM_ResaHoraire7") ?>><?php
-                                                                                            echo $helpC->SearcheParameter("PARAM_ResaHoraire7")
-                                                                                            ?></option>
-                <option value=<?php echo $helpC->SearcheParameter("PARAM_ResaHoraire8") ?>><?php
-                                                                                            echo $helpC->SearcheParameter("PARAM_ResaHoraire8")
-                                                                                            ?></option>
+                <option value=<?php echo  $helperMenu->SearcheParameterHourly("PARAM_ResaHoraire4") ?>><?php
+                                                                                                        echo  $helperMenu->SearcheParameterHourly("PARAM_ResaHoraire4")
+                                                                                                        ?></option>
+                <option value=<?php echo  $helperMenu->SearcheParameterHourly("PARAM_ResaHoraire5") ?>><?php
+                                                                                                        echo  $helperMenu->SearcheParameterHourly("PARAM_ResaHoraire5")
+                                                                                                        ?></option>
+                <option value=<?php echo  $helperMenu->SearcheParameterHourly("PARAM_ResaHoraire6") ?>><?php
+                                                                                                        echo  $helperMenu->SearcheParameterHourly("PARAM_ResaHoraire6")
+                                                                                                        ?></option>
+                <option value=<?php echo  $helperMenu->SearcheParameterHourly("PARAM_ResaHoraire7") ?>><?php
+                                                                                                        echo  $helperMenu->SearcheParameterHourly("PARAM_ResaHoraire7")
+                                                                                                        ?></option>
+                <option value=<?php echo  $helperMenu->SearcheParameterHourly("PARAM_ResaHoraire8") ?>><?php
+                                                                                                        echo  $helperMenu->SearcheParameterHourly("PARAM_ResaHoraire8")
+                                                                                                        ?></option>
               </optgroup>
             </select>
           </div>

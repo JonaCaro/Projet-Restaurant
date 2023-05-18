@@ -1,5 +1,7 @@
 <?php
+require_once('pdo.php');
 session_start();
+
 if (
   isset($_POST["mail"]) && isset($_POST["mdp"])
 ) {
@@ -7,10 +9,11 @@ if (
   $mail = $_POST["mail"];
   $mdp = $_POST["mdp"];
   try {
-    $pdo = new PDO('mysql:host=localhost;dbname=quaiantique', 'root', '');
-    $tmt = $pdo->prepare("SELECT u.id, u.name, u.Role FROM users u 
-      inner join signup s where u.email = ? and s.Password = ?");
-    $tmt->execute(array('' . $mail . '', '' . $mdp . ''));
+
+    $insertPDO = new HelperBDD();
+
+    $tmt = $insertPDO->SelectConnectionElement($mail, $mdp);
+
     if ($tmt->rowCount() == 1) {
       foreach ($tmt as $row) {
         $name = $row["name"];
