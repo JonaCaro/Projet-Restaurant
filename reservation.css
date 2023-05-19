@@ -165,3 +165,17 @@ a{
     height: 30%;
 }
 }
+
+@media (max-width: 600px){
+  #notLogin{
+    font-size: 20px;
+    margin-top: 65px;
+  }
+}
+
+@media (max-width: 400px){
+  #notLogin{
+    font-size: 15px;
+    
+  }
+}

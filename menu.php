@@ -151,7 +151,7 @@ $helperMenu = new HelperClass();
                 ?></td>
               <td>
                 <?php
-                echo $helperMenu->SearcheParameterDescriptionMenu("PARAM_DrinkHotOne")
+                echo $helperMenu->SearcheParameterValueMenu("PARAM_DrinkHotOne")
                 ?></td>
               <td class="price">
                 <?php

@@ -186,16 +186,19 @@ font-size: 20px;
 
 @media (max-width: 500px){
 	.price{
+		font-size: 15px;
 		padding: 10px;
 	}
 }
 
 @media (max-width: 400px){
 	.price{
-		padding: 0;
+		margin: 10px;
 	}
 	body{
 		font-size: 12px;
 	}
-
+.small{
+	width: 80%;
+}
 }

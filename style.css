@@ -13,9 +13,10 @@ html, body{
 }
 
 nav{
-	position: absolute; 
+	position: absolute;
 	height: 80px;
 	width: 100%;
+	z-index: 1;
 }
 
 nav ul{
@@ -84,6 +85,10 @@ label img{
 	text-transform: uppercase;
 }
 
+#video{
+	z-index: 0;
+}
+
 .smallpic{
 	display: none;
 }
@@ -91,10 +96,6 @@ label img{
 #presentation{
 	display: flex;
 	align-items: center;
-}
-
-#video{
-	z-index: 0;
 }
 
 #discBox{
@@ -182,7 +183,8 @@ box-shadow: -30px 30px 5px #A6754B;
 	margin-top: 25%;
 	position: absolute;
 	color: white;
-	font-size: 25px;
+	font-size: 30px;
+
 }
 
 th {
@@ -343,7 +345,7 @@ footer div a:hover{
 	.checkbtn{
 		display: block;
 	}
-
+	
 	nav ul{
 		width: 99%;
 	}
@@ -351,7 +353,7 @@ footer div a:hover{
 	ul{
 		position: absolute;
 		width: 100%;
-		height: 100vh;
+		height: 80vh;
 		background: #A6754B;
 		top: 80px;
 		left: -125%;
@@ -366,7 +368,7 @@ footer div a:hover{
 	}
 
 	nav ul li a{
-		font-size: 25px;
+		font-size: 20px;
 	}
 	.Connexion{
 		font-size: 20px;
@@ -384,12 +386,20 @@ footer div a:hover{
 	#check:checked ~ ul{
 		left: 0;
 	}
+	.schedule{
+		font-size: 18px;
+		margin-left: 35%;
+	}
 }
 
 @media (max-width: 800px){
 	.picture{
 		width: 70%;
 		height: 80%;
+	}
+	.schedule{
+		font-size: 12px;
+		margin-left: 35%;
 	}
 }
 
@@ -420,6 +430,19 @@ footer div a:hover{
 	#discBox{
 		width: 90%;
 	}
+
+	.schedule{
+		font-size: 12px;
+		margin-left: 32%;
+	}
+}
+
+@media (max-width: 400px){
+	.schedule{
+		font-size: 10px;
+		margin-left: 28%;
+		margin-top: 20%;
+  }
 }
 
 .newMail

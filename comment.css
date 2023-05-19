@@ -21,6 +21,7 @@ h1{
 	text-align: center;
 	margin: 30px;
 	font-size: 25px;
+	color: white;
 }
 
 a, input[type=submit]{
@@ -56,8 +57,6 @@ a:hover, input[type=submit]:hover{
   border: 1px solid #D99A4E;
 	box-shadow: 1px 1px 1px #A6754B;
 }
-
-
 
 .modal{
 	width: 100%;
@@ -121,4 +120,23 @@ th, td {
 	text-align: center;
 	padding: 5px;
 }
+
+@media (max-width: 600px){
+
+	table{
+		width: 100%;
+	}
+	#addCom, #notLogin, #add{
+	font-size: 15px;
+	}
+}
+
+@media (max-width: 400px){
+
+	#notLogin{
+	font-size: 12px;
+	}
+}
+	
+
 

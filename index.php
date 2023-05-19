@@ -50,7 +50,7 @@ if (isset($_SESSION["Role"]) && $_SESSION["Role"] == 1) {
 
       <?php
 
-      if ($_SESSION["Role"] === 1) {
+      if ($role === 1) {
         echo '<li><a class="admin" href="./admin/admin.php">Admin</a></li>';
       } else {
         '<style>.admin{ display: none; }</style>';
